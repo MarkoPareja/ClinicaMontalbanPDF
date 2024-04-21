@@ -1,0 +1,516 @@
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 150;
+}
+
+div{
+    font-family: 'Averta-Regular';
+}
+
+.imagenlogo{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.titulo{
+    font-family: 'Averta-Regular';
+    /*position: absolute;
+    margin-top: -65px;
+    margin-left: 95px;*/
+    margin-top: 10px;
+    font-size: 35px;
+    color: #017eff;
+}
+
+.titulo2{
+    font-family: 'Averta-Regular';
+    /*position: absolute;
+    margin-top: -65px;
+    margin-left: 215px;*/
+    margin-top: 10px;
+    font-size: 35px;
+    color: #00da67;
+}
+
+
+.flexiniciosesion{
+    font-family: 'Averta-Regular';
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rectangulo{
+    background-color: rgb(151, 212, 154);
+    outline: none;
+    border: rgb(151, 212, 154);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    /*margin-top: 10px;
+    transition: background-color 0.3s ease;
+    margin-right: 30px;*/
+    padding: 10px 30px; 
+    margin-right: 15px;
+    width: 150px;
+    height: 50px;
+}
+
+.rectangulo:hover {
+    background-color: rgb(218, 238, 255);
+    border: solid 2px rgb(218, 238, 255);
+    color: rgb(62, 74, 134);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.custom-nav {
+    box-shadow: 0 2px 8px rgb(0, 128, 255);
+}
+
+.linksindecoracion{
+    /*font-size: 16px;*/
+    text-decoration:none;
+}
+
+.entraryregistrarse{
+    /*position: absolute;
+    margin-top: -54px;
+    margin-left: 87%;
+    margin-top: 9px;
+    margin-left: 15px;*/
+    margin-top: 4px;
+    width: 90px;
+}
+
+.navbar-nav{
+    margin-right: 20px;
+}
+
+.navbar-collapse{
+    justify-content: center;
+}
+
+.nav-item{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+html{
+    font-family: 'Averta-Regular';
+    margin-left: -7px;
+    margin-top: -8.7px;
+
+}
+
+#header{
+    height: 83px;
+    background-color: rgb(255, 255, 255);
+    margin-top: -5px;
+}
+
+#header2{
+    height: 45px;
+    background-color: #00da67;
+}
+
+.container-fluid{
+    margin-top: 10px;
+    height: 45px;
+}
+
+.navbar-collapse{
+    justify-content: center;
+}
+
+.nav-item{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.flex1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+#menu{
+    margin-top: 12px;
+}
+.gradient{
+    position: absolute;
+    width: 100.432222%;
+    height: 1600px;
+    background: linear-gradient(165deg, white, white, rgb(190, 255, 255),#2cd5ff);
+    z-index: -1;
+}
+
+footer{
+    position: absolute;
+    margin-top: 6%;
+    width: 100.3%;
+    background-color: white;
+}
+
+.flexfooter1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flexfooter2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 150px;
+}
+
+.flexfooter3{
+    display: flex;
+    flex-direction: column;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.flexfooter4{
+    display: flex;
+    flex-direction: column;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.columnas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.columna1{
+    display: flex;
+    flex-direction: column;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.titulo3{
+    font-family: 'Averta-Regular';
+    font-size: 20px;
+    color: #017eff;
+}
+
+.titulo4{
+    font-family: 'Averta-Regular';
+    font-size: 20px;
+    color: #00da67;
+}
+
+
+
+
+
+
+
+
+.flexinicial{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.areaContacto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    width: 700px;
+    height: 700px;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.form-floating {
+    width: 400px;
+    margin-top: 20px;
+}
+
+.nombrecontacto{
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    background-color: rgb(151, 212, 154);
+    outline: none;
+    border: rgb(151, 212, 154);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(218, 238, 255);
+    border: solid 2px rgb(218, 238, 255);
+    color: rgb(62, 74, 134);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexcontacto{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexlocal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.mapa{
+    margin-left: 50px;
+    box-shadow: 5px 4px 15px 0px;
+}
+
+.titulocontacto{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Averta-Regular';
+    font-weight: bold;
+    font-size: 30px;
+}
+.Copyright{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: rgb(61, 61, 61);
+}
+
+.footertext{
+    text-decoration: none;
+    color: black;
+}
+
+.footertext:hover{
+    text-decoration:underline;
+    color: #017eff;
+}
+
+.mailto{
+    text-decoration: none;
+    color: black;
+}
+
+.mailto:hover{
+    text-decoration:underline;
+    color: #017eff;
+}
+.headeroculto{
+    display:none;
+}
+
+@media (min-width: 0px) and (max-width: 998px) {
+    .main-header{
+        display: none;
+    }
+    .headeroculto{
+        display:block;
+    }
+    .gradient{
+        position: absolute;
+        width: 100.432222%;
+        height: 2000px;
+        background: linear-gradient(165deg, white, white, rgb(190, 255, 255),#2cd5ff);
+        z-index: -1;
+    }
+    
+    .columna1{
+        margin-bottom: 30px;
+    }
+    .imagenlogo-pequeño{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 37%;
+    }
+    
+    .titulo-pequeño{
+        font-family: 'Averta-Regular';
+        position: absolute;
+        margin-left: 36%;
+        margin-top: -15px;
+        font-size: 22px;
+        color: #017eff;
+    }
+    
+    .titulo2-pequeño{
+        font-family: 'Averta-Regular';
+        position: absolute;
+        margin-left: 51%;
+        margin-top: -15px;
+        font-size: 22px;
+        color: #00da67;
+    }
+    .flexiniciosesion-pequeño{
+        font-family: 'Averta-Regular';
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    
+    .rectangulo-pequeño{
+        background-color: rgb(151, 212, 154);
+        outline: none;
+        border: rgb(151, 212, 154);
+        border-radius: 20px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 30px; 
+        margin-right: 15px;
+        width: 150px;
+        height: 50px;
+    }
+    
+    .rectangulo-pequeño:hover {
+        background-color: rgb(218, 238, 255);
+        border: solid 2px rgb(218, 238, 255);
+        color: rgb(62, 74, 134);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+    /*.nav-item{
+        margin-top: 10px;
+    }
+    .navbar-toggler{
+        position: absolute;
+    }*/
+    .p1-1{
+        font-size: 20px;
+    }
+    .p1-2{
+        font-size: 15px;
+        width: 280px;
+        margin-left: -50px;
+    }
+    .navbar-toggler{
+        margin-right: 30px;
+        margin-top: -10px;
+    }
+    .offcanvas-header{
+        margin-right: 40px;
+    }
+    .sm-01{
+        margin-left: -10px;
+    }
+    .flexfooter3, .flexfooter4{
+        padding: 15px;
+    }
+    .flexfooter3{
+        margin-left: -10px;
+    }
+    .mapa{
+        margin-right: 45px;
+        margin-top: 15px;
+    }
+    .mapa-google{
+        width: 330px;
+    }
+    .titulocontacto{
+        font-size: 25px;
+    }
+    .vacio{
+        display: none;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+    .flexinicial{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .areaContacto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 60px;
+        width: 350px;
+        height: 700px;
+        border-radius: 10px;
+        flex-direction: column;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+        background-color: white;
+    }
+
+    .form-floating, #floatingInput{
+        width: 300px;
+        justify-content: center;
+    }
+    
+
+    
+    .nombrecontacto{
+        margin-bottom: 30px;
+        margin-top: 5px;
+    }
+    
+    input[type="submit"] {
+        background-color: rgb(151, 212, 154);
+        outline: none;
+        border: rgb(151, 212, 154);
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: rgb(218, 238, 255);
+        border: solid 2px rgb(218, 238, 255);
+        color: rgb(62, 74, 134);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+    
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar{
+    box-shadow: 0 2px 8px rgb(0, 128, 255);
+    }
+}

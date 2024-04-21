@@ -1,0 +1,211 @@
+.calendar, .left {
+    max-width: 450px;
+    width: 100%;
+}
+
+div.calendar #nxt, 
+div.calendar #prev {
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+    color: #000000 !important; /* Agrega un color al botón y usa !important */
+}
+
+div.calendar #nxt:hover, 
+div.calendar #prev:hover {
+    color: #0060e6 !important;
+    background: #eef5ff !important;
+    height: 38px;
+    width: 38px;
+}
+
+.chevron-container:hover {
+    background: #f14b26;
+    height: 32px;
+    width: 32px;
+}
+
+.weekdays div {
+    width: 14.28%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar #days .day {
+    width: 12.28%;
+    height: 52px;
+    margin: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    caret-color: transparent;
+}
+
+.calendar .day:not(.prev-date, .nxt-date, .tillCurrentDate, .futureDays) {
+    background: #f0f6ff;
+    color: #0060e6;
+    border-radius: 50%;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.calendar .day:not(.prev-date, .nxt-date, .active, .tillCurrentDate, .futureDays):hover {
+    background: #d9e6fc;
+}
+
+.calendar #days .nxt-date, .calendar #days .prev-date {
+    visibility: hidden;
+}
+
+.calendar #days .active {
+    background: #0060e6;
+    color: #fff;
+}
+
+.calendar #days .today {
+    position: relative;
+}
+
+.calendar #days .today::after {
+    position: absolute;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background: #0060e6;
+    border-radius: 50%;
+    bottom: 8px;
+}
+
+.calendar #days .active.today::after {
+    background: #fff;
+}
+
+#rightContent {
+    width: 275px;
+    max-height: 400px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.right {
+    border-end-end-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: 0.3s;
+}
+
+.events {
+    height: 385px;
+}
+
+.left {
+    height: 530px;
+}
+
+@media screen and (max-width: 768px) {
+    .right {
+        width: 330px;
+        border-radius: 0;
+        margin: auto;
+    }
+
+    .left {
+        height: 450px;
+        margin: auto;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 4px;
+    width: 8px;
+    background: #fff;
+    padding: 10px;
+}
+
+.confirm-btn, .event-time {
+    height: 52px;
+    font-weight: 700;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.event-time {
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #0069ff80;
+    width: 100%;
+    border-radius: 4px;
+    color: #0069ff;
+    background: #fff;
+    transition: width 0.3s, transform 0.3s;
+}
+
+.event-time:hover:not(.btnDisable, .activeEvent-time) {
+    border-width: 2px;
+    border-color: #0069ff;
+}
+
+.button-full .activeEvent-time {
+    width: 48%;
+    border-color: transparent;
+    background-color: #00000099;
+    color: #fff;
+}
+
+.button-full .activeConfirm-btn {
+    transform: translateX(0);
+}
+
+.confirm-btn {
+    width: 48%;
+    margin-left: 3%;
+    background-color: #0069ff;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px 0 #0000001a;
+    border: none;
+    transform: translateX(20px);
+}
+
+.button-full {
+    white-space: nowrap;
+}
+
+.btnDisable {
+    border: 1px solid #f1f1f1;
+    color: #837f7f;
+    background: #f1f1f1;
+}
+
+@media screen and (max-width: 480px) {
+    .calendar, .left {
+        width: 330px;
+    }
+
+    .left {
+        height: 360px;
+        margin: auto;
+    }
+
+    .calendar #days .day {
+        width: 11.28%;
+        height: 35px;
+    }
+
+    .calendar #days .today::after {
+        bottom: 2px;
+    }
+}

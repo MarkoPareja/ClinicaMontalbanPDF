@@ -1,0 +1,78 @@
+
+   html{
+      background-image:url(imagen-fondo.jpg)
+   }
+   body{
+      margin: -0.2px;
+   }
+   .central{
+      font-family: 'Averta-Regular';
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      text-align: center;
+   }
+   .titulo{
+    font-family: 'Averta-Regular';
+    /*position: absolute;
+    margin-top: -65px;
+    margin-left: 95px;
+    margin-top: 18px;*/
+    font-size: 30px;
+    color: #017eff;
+}
+
+.titulo2{
+    font-family: 'Averta-Regular';
+    /*position: absolute;
+    margin-top: -65px;
+    margin-left: 215px;
+    margin-top: 18px;*/
+    padding-left: 30px;
+    font-size: 30px;
+    color: #00da67;
+}
+   .imagen-div{
+      margin-left: -10vh;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+   }
+   .imagen-principal, a{
+      width: 70px;
+   }
+   .texto{
+      display: flex;
+      font-size: 130%;
+      padding: 10px;
+   }
+   .cuadrado{
+      background-color: rgba(128, 128, 128, 0.404);
+      width: 250px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .titulos{
+      text-decoration: none;
+   }
+   .footer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 100%;
+      margin-top: 60px;
+   }
+   .flexfooter2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 150px;
+    padding: 10PX;
+   }

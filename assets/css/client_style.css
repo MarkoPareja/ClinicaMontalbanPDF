@@ -1,0 +1,269 @@
+
+.header-separator {
+    border: 3px solid #00da67;
+    height: 2px;
+    background: #00da67; 
+}
+
+.title-top { 
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #041da8;
+    padding: 1px; /* Añadir un relleno alrededor del contenido para separarlo del borde */
+}
+
+/* ALL-Modals */
+
+.modals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.juntos {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Carta */
+
+.card-title {
+    font-weight: bold;
+    color: #041da8;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px; /* Agrega el margen que desees entre los botones */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra */
+    transition: transform 0.3s, box-shadow 0.3s;; /* Agrega una t ransición para la propiedad de transform */
+    scale: 1.1;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover para un efecto de elevación */
+    transform: scale(1.03); /* Aumenta el tamaño en un 10% cuando se coloca el cursor sobre la imagen */
+}
+
+/* Visitas programadas */
+
+
+/* Buttons bootsrap 5.0 "btn" */
+
+.btn-cliente {
+    background-color: #00da67;
+}
+
+.titulo-cita{
+    font-size: 22px;
+    color: #041da8;
+}
+
+#motivo {
+    border: 3px solid #00FF00; /* Borde del textarea */
+    width: 100%; /* Ancho del textarea al 100% */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Margen inferior */
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+.segundo-titulo-precalendar {
+    margin-bottom: 20px;
+}
+
+.aceptar {
+  color: #4fbfa8;
+  background-color: #ffffff;
+  border-color: #4fbfa8;
+  font-weight: bold;
+  border-radius: 5px; 
+}
+
+.aceptar:hover,
+.aceptar:active,
+.aceptar:focus,
+.aceptar.active {
+  background: #4fbfa8;
+  color: #ffffff;
+  border-color: #4fbfa8;
+
+}
+
+/* Modificacion de las imagenes. */ 
+.modal-content {
+    border: none;
+}
+
+body{
+    font-family: 'Averta-Regular';
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 2px 8px #aceeff;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 25%, #aceeff 51%, #d9f7ff 100%);
+    -webkit-animation: AnimateBG 20s ease infinite;
+            animation: AnimateBG 20s ease infinite;
+  }
+  
+  @-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+.logo-clinica {
+    display: flex;
+    align-items: center;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.titulo {
+    margin-top: 10px; /* Ajusta el margen para centrar verticalmente */
+    margin-left: 15px;
+    font-size: 35px;
+    color: #017eff;
+    font-family: 'Averta-Regular';
+}
+
+.titulo2 {
+    margin-top: 10px; /* Ajusta el margen para centrar verticalmente */
+    margin-left: 15px;
+    font-size: 35px;
+    color: #00da67;
+    font-family: 'Averta-Regular';
+}
+.flexiniciosesion{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.linksindecoracion{
+    text-decoration:none;
+}
+
+html{
+    margin-left: -7px;
+    margin-top: -8.7px;
+
+}
+
+.container-fluid{
+    margin-top: -9.8px;
+    height: 45px;
+    background-color: #00da67;
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+}
+
+.nav-item {
+    margin-left: 10px; /* Ajusta el margen entre elementos */
+    margin-right: 10px;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    margin-left: 20px; /* Ajusta el margen izquierdo */
+    margin-right: 20px; /* Ajusta el margen derecho */
+}
+
+#menu{
+    margin-top: 12px;
+}
+
+.img1{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 15%;
+    margin-top: 30px;
+}
+
+
+.flex2{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.img2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+    margin-top: 170px;
+}
+
+/* Cita! Aqui esta el css antes de poder acceder al calendario */
+
+.pre-calendar {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para la imagen en tamaños pequeños de pantalla */
+@media (max-width: 768px) {
+    
+    header .titulo,
+    header .titulo2 {
+        display: none;
+    }
+
+    #espacio-blanco {
+        display: none;
+    }
+
+    .card {
+        scale: 1.1;
+        margin: 40px
+    }
+
+    .juntos {
+        flex-direction: column;
+    }
+
+    .modals {
+        flex-direction: column;
+    }
+}

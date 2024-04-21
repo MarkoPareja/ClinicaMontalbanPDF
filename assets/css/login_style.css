@@ -1,0 +1,400 @@
+/* El "*" y el body aplicaran cambios a toda la estructura,
+utilizando display Flex para que los tamaños se mantengan */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(../img/login-clinica-test.jpg); 
+    background-size: cover;
+    backdrop-filter: blur(3px);
+}
+
+.container-form{
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 600px;
+    max-width: 900px;
+    transition: all 1s ease;
+    border: solid thin rgb(13, 197, 221);
+    box-shadow: 1px 1px 30px;
+}
+
+.information{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(218, 238, 255);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius:  20px;
+}
+
+.info-childs {
+    width: 100%;
+    padding: 0 30px;
+    margin-bottom: 50px;
+}
+
+.info-childs h2 {
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.info-childs p {
+    margin: 15px 0;
+    margin-bottom: 30px;
+}
+
+.info-childs a {
+    margin-bottom: 80px;
+    color: rgb(0, 0, 0);
+}
+
+/* Negrita en la ventana de la izquierda. */
+.info-negrita-register{
+    font-weight: bold;
+    color: rgb(6, 4, 129);
+}
+
+.info-negrita-login{
+    font-weight: bold;
+    color: rgb(6, 4, 129);
+}
+
+.info-childs input {
+    background-color: transparent;
+    outline: none;
+    border: solid 2px rgb(60, 103, 138);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(46, 60, 141);
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+.info-childs input:hover{
+    background-color: rgb(151, 212, 154);
+    border: none;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+
+}
+
+.form-information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+    background-color: rgb(250, 255, 253);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius:  20px;
+}
+
+.form-information-childs{
+    padding: 0 30px;
+}
+
+.form-information-childs h2 {
+    color: rgb(0, 136, 45);
+    font-weight: bold;
+}
+
+.form-information-childs p {
+    color: rgb(0, 136, 45);
+}
+
+.icons {
+    margin: 15px 0;
+}
+
+.icons i {
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    margin: 0 10px;
+    color: rgb(0, 136, 45);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+
+}
+
+.passwordeye{
+    display: flex;
+    align-items: center;
+}
+
+.eye {
+    margin-left: auto;
+}
+
+.icons i:hover {
+    background-color: rgb(174, 238, 174);
+    color: rgb(0, 136, 45);
+}
+
+.form {
+    margin: 30px 0 0 0;
+}
+
+.form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
+}
+
+.form label input{
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: black;
+}
+/* Ocultar las flechas en campos de entrada de tipo "number" */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Color de los iconos --- */
+.form label i {
+    color: rgb(0, 136, 45);
+}
+
+.numbered{
+    color: rgb(0, 136, 45);
+    margin-left: 3px;
+}
+
+.form input[type="submit"] {
+    background-color: rgb(151, 212, 154);
+    outline: none;
+    border: rgb(151, 212, 154);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form input[type="submit"]:hover {
+    background-color: rgb(218, 238, 255);
+    border: solid 2px rgb(218, 238, 255);
+    color: rgb(62, 74, 134);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+/* Aqui en la clase hide, 
+    empujamos todo el contenido de la segunda ventana div
+    hacia arriba para que no se pueda visualizar en pantalla. */
+
+.hide-recovery{
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+/* Esconder el scroll */
+.scroll-blocked {
+    overflow: hidden;
+}
+
+/* Estilos para el enlace de recuperación de contraseña */
+.recovery-link {
+    text-decoration: none; 
+    color: rgb(62, 74, 134); 
+    transition: color 0.3s; 
+    background: none; 
+    border: none; 
+}
+
+.back-recovery{
+    text-decoration: none; 
+    color: rgb(62, 74, 134); 
+    transition: color 0.3s; 
+    background: none; 
+    border: none; 
+}
+
+/* Cambia el color al pasar el mouse sobre el enlace */
+
+.back-recovery:hover {
+    color: #0056b3; 
+}
+.recovery-link:hover {
+    color: #0056b3; 
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#countdown {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#codigoExpirado {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    display: none;
+}
+
+.form input[type="button"] {
+    background-color: rgb(151, 212, 154);
+    outline: none;
+    border: rgb(151, 212, 154);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form input[type="button"]:hover {
+    background-color: rgb(218, 238, 255);
+    border: solid 2px rgb(218, 238, 255);
+    color: rgb(62, 74, 134);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.botonReset{
+    background-color: rgb(151, 212, 154);
+    outline: none;
+    border: rgb(151, 212, 154);
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonReset:hover {
+    background-color: rgb(218, 238, 255);
+    border: solid 2px rgb(218, 238, 255);
+    color: rgb(62, 74, 134);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* --- Parte responisve para movil --- */
+
+@media screen and (max-width:750px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:580px) {
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    }
+
+    .container-form {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .information {
+        width: 100%;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .form-information {
+        width: 100%;
+        padding: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 0px;
+    }
+
+    .info-childs p {
+        margin: 15px 0;
+    }
+    
+    .info-childs {
+        margin-bottom: 10px;
+        color: rgb(0, 0, 0);
+    }
+
+    /* Ajusta el tamaño que desees para dispositivos móviles */
+    .information a img {
+        width: 65px; 
+        height: 65px;
+    }
+}
+@media screen and (max-width:480px) {
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    }
+
+    .container-form {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+
+    }
+
+    .information {
+        width: 100%;
+        padding: 15px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .form-information {
+        width: 100%;
+        padding: 15px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 0px;
+    }
+    .form {
+        margin: 0px;
+    }
+}
