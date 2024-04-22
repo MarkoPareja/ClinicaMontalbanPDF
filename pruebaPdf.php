@@ -467,7 +467,7 @@ $y=100;
 
 foreach ($database->infoConsulta($_POST['cita']) as $consul) {
     $pdf->SetXY($x, $y); 
-    $txt = $consul['nombre'];
+    $txt = $consul['nombre']." ".$consul['dosis_estandar'];
     $txt = utf8_decode($txt);
     $pdf->WriteHTML($txt);
 

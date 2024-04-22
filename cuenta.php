@@ -68,11 +68,11 @@ if (!isset($_SESSION['usuario'])) {
             </div>
             <div class="form-group col-md-6 campo">
                 <label for="dni">DNI</label>
-                <input type="text" class="form-control" name="dni" id="dni" placeholder="00000000A" value="<?php echo isset($dni) ? $dni : ''; ?>" disabled>
+                <input type="text" class="form-control" name="dni" id="dni" placeholder="<?php echo isset($dni) ? $dni : ''; ?>" disabled>
             </div>
             <div class="form-group col-md-6 campo">
                 <label for="tsi">TSI</label>
-                <input type="text" class="form-control" name="tsi" id="tsi" placeholder="TASA1030101002" value="<?php echo isset($tsi) ? $tsi : ''; ?>" disabled>
+                <input type="text" class="form-control" name="tsi" id="tsi" placeholder="<?php echo isset($tsi) ? $tsi : ''; ?>" disabled>
             </div>
             <div class="form-group campo">
                 <label for="inputAddress">Dirección</label>
