@@ -1,3 +1,8 @@
+.hidden-form{
+    position: absolute;
+    display: none;
+    visibility: hidden;
+}
 
 .header-separator {
     border: 3px solid #00da67;

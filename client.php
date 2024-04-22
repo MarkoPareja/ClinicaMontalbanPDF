@@ -204,13 +204,15 @@ $database = new Database();
                                     <li class="list-group-item">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1"><strong>Medico: </strong><?php echo $visita['nombre'] ?></h5>
-                                            <small><strong><?php echo $visita['fecha'] ?></strong></small>
+                                            <small><strong><?php echo $visita['fecha']; echo "   ".$visita['hora'] ?></strong></small>
                                         </div>
-                                        <p class="mb-1" style="word-wrap: break-word;"><?php echo $visita['descripcion']?></p>
+                                        <p class="mb-1" style="word-wrap: break-word;">Motivo consulta: <?php echo $visita['descripcion']?></p>
                                         <!--<small><strong>Cliente: </strong>' . $row['nombreCliente'] . '</small>-->
                                         <form id="miFormulario" action="pruebaPdf.php" method="post" target="_blank">
-                                            <input type="hidden" id="cliente" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>"><br><br>
-                                            <input type="hidden" id="cita" name="cita" value="<?php echo $visita['idCita']?>"><br><br>
+                                            <div class="hidden-form">
+                                            <input id="cliente" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>"><br><br>
+                                            <input id="cita" name="cita" value="<?php echo $visita['idCita']?>"><br><br>
+                                            </div>
                                             <!--<input type="button" value="Descargar PDF" onclick="enviarFormulario()">-->
                                             <button style="margin-left: auto; margin-bottom: 20px; padding: 8px; display: block;" class="btn btn-primary btn-sm" onclick="enviarFormulario()">Descargar</button>
                                         </form>
