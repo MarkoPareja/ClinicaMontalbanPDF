@@ -25,8 +25,8 @@ class Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function infoConsulta($idCita) {
-        $statement = $this->connection->prepare("SELECT Medicamentos.nombre, dosis, DATEDIFF(fecha_fin, fecha_inicio) AS duracion, fecha_inicio, fecha_fin, obs, Medicamentos.dosis_estandar FROM consulta JOIN Medicamentos ON Medicamentos.id=consulta.id_medicamento WHERE id_cita = ".$idCita);
+    public function infoDetalleConsulta($idCita) {
+        $statement = $this->connection->prepare("SELECT Medicamentos.nombre, dosis, DATEDIFF(fecha_fin, fecha_inicio) AS duracion, fecha_inicio, fecha_fin, obs, Medicamentos.dosis_estandar FROM detalle_consulta JOIN Medicamentos ON Medicamentos.id=detalle_consulta.id_medicamento WHERE id_consulta = ".$idCita);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -465,7 +465,7 @@ $nivel=120;
 $x=15.5;
 $y=100;
 
-foreach ($database->infoConsulta($_POST['cita']) as $consul) {
+foreach ($database->infoDetalleConsulta($_POST['cita']) as $consul) {
     $pdf->SetXY($x, $y); 
     $txt = $consul['nombre']." ".$consul['dosis_estandar'];
     $txt = utf8_decode($txt);
@@ -499,7 +499,52 @@ foreach ($database->infoConsulta($_POST['cita']) as $consul) {
     $pdf->Line(15,$nivel,198,$nivel);
     $nivel+=22;
     $pdf->Ln(22);
-    $y+=21.5;
+    $y+=22;
+    if($y > 254){
+        $pdf->AddPage();
+        $y = 26;
+        $nivel = 24.5;
+        $pdf->Ln(6);
+        $pdf->Cell(4);        
+
+        $txt = '<b>Medicamento o producto                            ';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $txt = 'Dosis y                            ';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $txt = 'Duración del                            ';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $pdf->Ln(3.5);
+        $pdf->Cell(4);
+        $txt = 'sanitario';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $pdf->Cell(43.5);
+        $txt = 'frecuencia';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $pdf->Cell(18.2);
+        $txt = 'tratamiento';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $pdf->Cell(16);
+        $txt = 'Vigencia                            ';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+        $txt = 'Comentarios</b>';
+        $txt = utf8_decode($txt);
+        $pdf->WriteHTML($txt);
+
+    }
 }
 
 
