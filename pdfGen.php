@@ -342,10 +342,6 @@ protected $T128;                                         // Tableau des codes 12
 
 }
 
-//$html = 'Ahora puede imprimir fácilmente texto mezclando diferentes estilos: <b>negrita</b>, <i>itálica</i>,
-//<u>subrayado</u>, o ¡ <b><i><u>todos a la vez</u></i></b>!<br><br>También puede incluir enlaces en el
-//texto, como <a href="http://www.fpdf.org">www.fpdf.org</a>, o en una imagen: pulse en el logotipo.';
-
 $pdf = new PDF();
 // Primera página
 $pdf->AddPage();

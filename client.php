@@ -197,40 +197,37 @@ $database = new Database();
                         </div>
                         <div class="modal-body">
                             <?php 
-                            
                             foreach ($database->datosVisita($dni) as $visita) {
                                 $idCliente = $database->idCliente($dni);
-                                ?><ul class="list-group list-group-item-action">
+                                ?>
+                                <ul class="list-group list-group-item-action">
                                     <li class="list-group-item">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1"><strong>Medico: </strong><?php echo $visita['nombre'] ?></h5>
                                             <small><strong><?php echo $visita['fecha']; echo "   ".$visita['hora'] ?></strong></small>
                                         </div>
                                         <p class="mb-1" style="word-wrap: break-word;">Motivo consulta: <?php echo $visita['descripcion']?></p>
-                                        <!--<small><strong>Cliente: </strong>' . $row['nombreCliente'] . '</small>-->
-                                        <form id="miFormulario" action="pruebaPdf.php" method="post" target="_blank">
-                                            <div class="hidden-form">
-                                            <input id="cliente" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>"><br><br>
-                                            <input id="cita" name="cita" value="<?php echo $visita['idCita']?>"><br><br>
-                                            </div>
-                                            <!--<input type="button" value="Descargar PDF" onclick="enviarFormulario()">-->
-                                            <button style="margin-left: auto; margin-bottom: 20px; padding: 8px; display: block;" class="btn btn-primary btn-sm" onclick="enviarFormulario()">Descargar</button>
+                                        <!-- Formulario para cada visita -->
+                                        <form action="pdfGen.php" method="post" target="_blank">
+                                            <input type="hidden" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>">
+                                            <input type="hidden" name="cita" value="<?php echo $visita['idCita']?>">
+                                            <!-- Botón de Descargar PDF dentro del formulario -->
+                                            <button type="submit" style="margin-left: auto; margin-bottom: 20px; padding: 8px; display: block;" class="btn btn-primary btn-sm">Descargar</button>
                                         </form>
-
-                                        <script>
-                                            function enviarFormulario() {
-                                                // Enviar el formulario al hacer clic en el botón
-                                                document.getElementById("miFormulario").submit();
-                                            }
-                                        </script>
-
-                                        
-                                        <div id="eliminar"></div>
                                     </li>
                                 </ul>     
-                            <br>         
+                                <br>         
                             <?php } ?>
                         </div>
+
+
+                        <script>
+                            function enviarFormulario(btn) {
+                                var form = btn.closest('form'); // Encuentra el formulario asociado al botón
+                                form.submit(); // Envía ese formulario
+                            }
+                        </script>
+
                         <div class="modal-footer">
                         </div>
                     </div>
