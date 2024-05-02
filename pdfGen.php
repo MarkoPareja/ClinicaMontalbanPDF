@@ -377,6 +377,7 @@ foreach ($database->infoCliente($_POST['cliente']) as $consul) {
     $nombre = $consul['nombre'];
     $apellido = $consul['apellido'];
     $tarjetaSanitaria = $consul['TSI'];
+    $dni = $consul['DNI'];
 }
 
 $txt = $nombre.' '.$apellido;
@@ -544,11 +545,13 @@ foreach ($database->infoDetalleConsulta($_POST['cita']) as $consul) {
 }
 
 
-
-
+$fecha = $database->datosVisita($dni);
+$apellidoTrim =str_replace(' ', '', $apellido);
+$nombreDecode = utf8_decode($nombre);
+$apellidoDecode = utf8_decode($apellidoTrim);
 
 $pdf->SetLeftMargin(45);
 $pdf->SetFontSize(14);
-$pdf->Output();
-//$pdf->Output("Receta Medica", 'D');
+//$pdf->Output();
+$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
 ?>

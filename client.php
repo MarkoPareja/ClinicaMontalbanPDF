@@ -91,10 +91,23 @@ $database = new Database();
 
                                         <div id="medicosDropdown">
                                             <h3 class="segundo-titulo-precalendar">Elige la especialidad de la lista</h3>
+                                            <?php include("php/medicosLista.php"); ?>
+                                            <select class="form-select select-custom" aria-label="Seleccionar Médico">
+                                            
+                                            
                                             <?php
-                                                // Incluir el archivo con la lista de médicos
-                                                include("php/medicosLista.php");
+                                                echo "<option selected>Seleccionar Médico</option>";
+                                                foreach ($database->listaMedicos() as $consul) {
+                                                    $idTrabajador = $consul['idTrabajador'];
+                                                    $nombre = $consul['nombre'];
+                                                    $apellido = $consul['apellido'];
+                                                    $descripcion = $consul['descripcio'];
+                                                    echo "<option name='medico' id='medico_$idTrabajador' value='$idTrabajador'>";
+                                                    echo "<strong>$nombre $apellido</strong>: $descripcion</option>";
+                                                }
+
                                             ?>
+                                            </select>
                                         </div>
                                         <br/>
                                         <div id="comparar-valores"></div>

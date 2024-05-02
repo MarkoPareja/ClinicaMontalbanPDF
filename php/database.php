@@ -32,7 +32,7 @@ class Database {
     }
 
     public function infoCliente($idCliente) {
-        $statement = $this->connection->prepare("SELECT persona.nombre, persona.apellido, cliente.TSI FROM persona JOIN cliente ON cliente.DNI=persona.DNI WHERE cliente.idCliente = ".$idCliente);
+        $statement = $this->connection->prepare("SELECT persona.nombre, persona.apellido, cliente.TSI, persona.DNI FROM persona JOIN cliente ON cliente.DNI=persona.DNI WHERE cliente.idCliente = ".$idCliente);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -51,6 +51,15 @@ class Database {
     public function idCliente($dni) {
         $statement = $this->connection->prepare("SELECT idCliente FROM cliente WHERE DNI = ?");
         $statement->execute([$dni]);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function listaMedicos(){
+        $statement = $this->connection->prepare("SELECT p.idTrabajador, pe.nombre, pe.apellido, e.descripcio 
+                                                FROM personal p
+                                                JOIN especialidad e ON p.especialidad = e.idEspecialidad
+                                                JOIN persona pe ON p.DNI = pe.DNI");
+        $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
     
