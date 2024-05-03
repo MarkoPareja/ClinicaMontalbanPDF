@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Obtener los valores del formulario
             var motivoCitaElement = document.getElementById('motivo');
-            var medicoSeleccionadoElement = document.querySelector('input[name="medico"]:checked');
+            //var medicoSeleccionadoElement = document.querySelector('input[name="medico"]:checked');
+            //var medicoSeleccionadoElement = document.querySelector('div.select');
+            var medicoSeleccionadoElement = document.querySelector('.dropdown input:first-of-type');
 
             if (medicoSeleccionadoElement) {
                 if (motivoCitaElement && motivoCitaElement.value.trim() !== "") {

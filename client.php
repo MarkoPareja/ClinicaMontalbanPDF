@@ -91,23 +91,42 @@ $database = new Database();
 
                                         <div id="medicosDropdown">
                                             <h3 class="segundo-titulo-precalendar">Elige la especialidad de la lista</h3>
-                                            <?php include("php/medicosLista.php"); ?>
-                                            <select class="form-select select-custom" aria-label="Seleccionar Médico">
+                                            <?php //include("php/medicosLista.php"); ?>
+                                            
+
+
+                                        <div class="container">
+                                            <div class="dropdown">
+                                                <div class="select">
+                                                <span>Seleccionar Médico</span>
+                                                <i class="fa fa-chevron-left"></i>
+                                                </div>
+                                                <input type="hidden" name="gender">
+                                                <ul class="dropdown-menu">
+                                                
+
+
+                                            <!--<select class="form-select select-custom" aria-label="Seleccionar Médico">-->
                                             
                                             
                                             <?php
-                                                echo "<option selected>Seleccionar Médico</option>";
+                                                //echo "<option selected>Seleccionar Médico</option>";
                                                 foreach ($database->listaMedicos() as $consul) {
                                                     $idTrabajador = $consul['idTrabajador'];
                                                     $nombre = $consul['nombre'];
                                                     $apellido = $consul['apellido'];
                                                     $descripcion = $consul['descripcio'];
-                                                    echo "<option name='medico' id='medico_$idTrabajador' value='$idTrabajador'>";
-                                                    echo "<strong>$nombre $apellido</strong>: $descripcion</option>";
+                                                    //echo "<option name='medico' id='medico_$idTrabajador' value='$idTrabajador'>$nombre $apellido: $descripcion</option>";
+                                                    echo "<li name='medico' id='medico_$idTrabajador' value='$idTrabajador'><strong>$nombre $apellido</strong>: $descripcion</li>";
                                                 }
 
                                             ?>
-                                            </select>
+                                            <!--</select>-->
+                                                </ul>
+                                                </div>
+                                            
+                                            <span class="msg"></span>
+                                            </div>
                                         </div>
                                         <br/>
                                         <div id="comparar-valores"></div>
@@ -266,6 +285,119 @@ $database = new Database();
     <script src="assets/js/scriptModal.js"></script>
     <script src="assets/js/borrarCita.js"></script>
     <script src="assets/js/almVisitas.js"></script>
-</body>
+    <script>
+        /*Dropdown Menu*/
+$('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+    $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+    $('.dropdown .dropdown-menu li').click(function () {
+    var id = $(this).attr('id');
+    var text = $(this).text();
+    var input = $(this).closest('.dropdown').find('input:first');
 
+    // Obtener valores personalizados si existen, de lo contrario, usar el id
+    var value = $(this).data('value') || id;
+    var name = $(this).data('name') || id;
+
+    // Establecer el id, el value y el name del input
+    input.attr('id', id);
+    input.attr('value', value);
+    input.attr('name', name);
+
+    // Actualizar el texto del span con el texto del elemento de la lista clicado
+    $(this).closest('.dropdown').find('span').text(text);
+});
+/*End Dropdown Menu*/
+    </script>
+</body>
+<style>
+
+span.msg,
+span.choose {
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit
+}
+
+
+/*Styling Selectbox*/
+.dropdown {
+  width: 300px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 16px;
+  color: #474747;
+  height: 100%;
+  text-align: left
+}
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding: 10px
+}
+.dropdown .select > i {
+    font-size: 15px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+.dropdown:active {
+    background-color: #f8f8f8
+}
+.dropdown.active:hover,
+.dropdown.active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 2px 2px 0 0;
+    background-color: #f8f8f8
+}
+.dropdown.active .select > i {
+    transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    font-size: 15px;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 2px 2px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9
+}
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+} 
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}
+
+<style>
 </html>
