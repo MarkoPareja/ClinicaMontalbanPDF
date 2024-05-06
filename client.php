@@ -151,7 +151,7 @@ $database = new Database();
                                     <div id="calendar-finish-details">
                                         <!-- Los detalles de la cita se mostrarán aquí -->
                                     </div>
-                                    <div class="modal-footer">
+                                    <div id="modal-footer-calendar" class="modal-footer">
                                         <button id="generarJSON" type="button" class="btn btn-info" data-bs-dismiss="modal" onclick="recargarPagina()">Cerrar la ventana</button>
                                     </div>
                                 </div>
@@ -302,13 +302,12 @@ $('.dropdown').click(function () {
     var input = $(this).closest('.dropdown').find('input:first');
 
     // Obtener valores personalizados si existen, de lo contrario, usar el id
-    var value = $(this).data('value') || id;
-    var name = $(this).data('name') || id;
+    var value = $(this).attr('value');
 
     // Establecer el id, el value y el name del input
     input.attr('id', id);
     input.attr('value', value);
-    input.attr('name', name);
+    input.attr('name', "medico");
 
     // Actualizar el texto del span con el texto del elemento de la lista clicado
     $(this).closest('.dropdown').find('span').text(text);
