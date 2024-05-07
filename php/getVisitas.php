@@ -23,10 +23,11 @@ echo '<div id="citasContainer">';
 if ($result && mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $idCita = $row['idCita'];
+        $fecha_formateada = date("d-m-Y", strtotime($row['fecha']));
         echo '<div class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><strong>Medico: </strong>' . $row['nombreTrabajador'] . '</h5>
-                    <small><strong>' . $row['fecha'] . ' ' . $row['hora'] . '</strong></small>
+                    <small><strong>' . $fecha_formateada . ' ' . $row['hora'] . '</strong></small>
                 </div>
                 <p class="mb-1" style="word-wrap: break-word;">' . $row['descripcion'] . '</p>
                 <small><strong>Cliente: </strong>' . $row['nombreCliente'] . '</small>

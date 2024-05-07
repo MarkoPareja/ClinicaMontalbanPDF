@@ -231,12 +231,13 @@ $database = new Database();
                             <?php 
                             foreach ($database->datosVisita($dni) as $visita) {
                                 $idCliente = $database->idCliente($dni);
+                                $fecha_formateada = date("d-m-Y", strtotime($visita['fecha']));
                                 ?>
                                 <ul class="list-group list-group-item-action">
                                     <li class="list-group-item">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1"><strong>Medico: </strong><?php echo $visita['nombre'] ?></h5>
-                                            <small><strong><?php echo $visita['fecha']; echo "   ".$visita['hora'] ?></strong></small>
+                                            <small><strong><?php echo $fecha_formateada; echo "   ".$visita['hora'] ?></strong></small>
                                         </div>
                                         <p class="mb-1" style="word-wrap: break-word;">Motivo consulta: <?php echo $visita['descripcion']?></p>
                                         <!-- Formulario para cada visita -->
