@@ -85,16 +85,12 @@ $database = new Database();
                                         <br>
                                         <h3>Motivo de la cita</h3>
                                         <label>
-                                            <textarea id="motivo" name="motivo" cols="38" rows="5" style="border:3px solid #00FF00;" placeholder="Cuentanos que sucede..." maxlength="100"></textarea>
+                                            <textarea id="motivo" name="motivo" cols="38" rows="5" style="border:3px solid #00FF00; resize: none;" placeholder="Cuentanos que sucede..." maxlength="1000"></textarea>
                                         </label>
                                         <br/>
 
                                         <div id="medicosDropdown">
-                                            <h3 class="segundo-titulo-precalendar">Elige la especialidad de la lista</h3>
-                                            <?php //include("php/medicosLista.php"); ?>
-                                            
-
-
+                                            <h3 class="segundo-titulo-precalendar">Elige la especialidad de la lista</h3>                                            
                                         <div class="container">
                                             <div class="dropdown">
                                                 <div class="select">
@@ -102,29 +98,24 @@ $database = new Database();
                                                 <i class="fa fa-chevron-left"></i>
                                                 </div>
                                                 <input type="hidden" name="gender">
-                                                <ul class="dropdown-menu">
-                                                
-
-
-                                            <!--<select class="form-select select-custom" aria-label="Seleccionar Médico">-->
-                                            
-                                            
+                                                <ul class="dropdown-menu">                                
                                             <?php
                                                 //echo "<option selected>Seleccionar Médico</option>";
-                                                foreach ($database->listaMedicos() as $consul) {
-                                                    $idTrabajador = $consul['idTrabajador'];
-                                                    $nombre = $consul['nombre'];
-                                                    $apellido = $consul['apellido'];
-                                                    $descripcion = $consul['descripcio'];
-                                                    //echo "<option name='medico' id='medico_$idTrabajador' value='$idTrabajador'>$nombre $apellido: $descripcion</option>";
-                                                    echo "<li name='medico' id='medico_$idTrabajador' value='$idTrabajador'><strong>$nombre $apellido</strong>: $descripcion</li>";
+                                                $medicos = $database->listaMedicos();
+                                                if (!empty($medicos)) {
+                                                    foreach ($medicos as $consul) {
+                                                        $idTrabajador = $consul['idTrabajador'];
+                                                        $nombre = $consul['nombre'];
+                                                        $apellido = $consul['apellido'];
+                                                        $descripcion = $consul['descripcio'];
+                                                        echo "<li name='medico' id='medico_$idTrabajador' value='$idTrabajador'><strong>$nombre $apellido</strong>: $descripcion</li>";
+                                                    }
+                                                } else {
+                                                    echo "<li>No hay médicos disponibles.</li>";
                                                 }
-
                                             ?>
-                                            <!--</select>-->
                                                 </ul>
                                                 </div>
-                                            
                                             <span class="msg"></span>
                                             </div>
                                         </div>
@@ -190,9 +181,7 @@ $database = new Database();
                                             <h5 class="modal-title" id="confirmacionModalLabel"><strong>Confirmar Eliminación</strong></h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body" id="confirmacionMensaje">
-                                            ¿Estás seguro de que quieres eliminar esta cita?
-                                        </div>
+                                        <div class="modal-body" id="confirmacionMensaje">¿Estás seguro de que quieres eliminar esta cita?</div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                             <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
@@ -228,29 +217,41 @@ $database = new Database();
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                        <?php 
+                            // Obtener los datos de visita
+                            $datosVisita = $database->datosVisita($dni);
+
+                            // Verificar si hay datos disponibles
+                            if (!empty($datosVisita)) {
+                                foreach ($datosVisita as $visita) {
+                                    $idCliente = $database->idCliente($dni);
+                                    $fecha_formateada = date("d-m-Y", strtotime($visita['fecha']));
+                            ?>
+                                    <ul class="list-group list-group-item-action">
+                                        <li class="list-group-item">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1"><strong>Medico: </strong><?php echo $visita['nombre'] ?></h5>
+                                                <small><strong><?php echo $fecha_formateada; echo "   ".$visita['hora'] ?></strong></small>
+                                            </div>
+                                            <p class="mb-1" style="word-wrap: break-word;">Motivo consulta: <?php echo $visita['descripcion']?></p>
+                                            <!-- Formulario para cada visita -->
+                                            <form action="pdfGen.php" method="post" target="_blank">
+                                                <input type="hidden" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>">
+                                                <input type="hidden" name="cita" value="<?php echo $visita['idCita']?>">
+                                                <!-- Botón de Descargar PDF dentro del formulario -->
+                                                <button type="submit" style="margin-left: auto; margin-bottom: 20px; padding: 8px; display: block;" class="btn btn-primary btn-sm">Descargar</button>
+                                            </form>
+                                        </li>
+                                    </ul>     
+                                    <br>         
                             <?php 
-                            foreach ($database->datosVisita($dni) as $visita) {
-                                $idCliente = $database->idCliente($dni);
-                                $fecha_formateada = date("d-m-Y", strtotime($visita['fecha']));
-                                ?>
-                                <ul class="list-group list-group-item-action">
-                                    <li class="list-group-item">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1"><strong>Medico: </strong><?php echo $visita['nombre'] ?></h5>
-                                            <small><strong><?php echo $fecha_formateada; echo "   ".$visita['hora'] ?></strong></small>
-                                        </div>
-                                        <p class="mb-1" style="word-wrap: break-word;">Motivo consulta: <?php echo $visita['descripcion']?></p>
-                                        <!-- Formulario para cada visita -->
-                                        <form action="pdfGen.php" method="post" target="_blank">
-                                            <input type="hidden" name="cliente" value="<?php echo $idCliente[0]['idCliente']?>">
-                                            <input type="hidden" name="cita" value="<?php echo $visita['idCita']?>">
-                                            <!-- Botón de Descargar PDF dentro del formulario -->
-                                            <button type="submit" style="margin-left: auto; margin-bottom: 20px; padding: 8px; display: block;" class="btn btn-primary btn-sm">Descargar</button>
-                                        </form>
-                                    </li>
-                                </ul>     
-                                <br>         
-                            <?php } ?>
+                                } 
+                            } else {
+                                // Si no hay datos, mostrar un mensaje
+                                echo '<p><strong>No hay visitas realizadas.</strong></p>';
+                            }
+                            ?>
+
                         </div>
 
 

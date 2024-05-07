@@ -63,7 +63,18 @@ class Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
     
-
+    public function listaVisitas(){
+        $statement = $this->connection->prepare("SELECT ci.idCita, pe.nombre AS nombreCliente, per.nombre AS nombreTrabajador, ci.fecha, ci.hora, ci.descripcion  
+                                                FROM cliente c 
+                                                JOIN cita ci ON (c.idCliente = ci.idCliente) 
+                                                JOIN personal t ON (ci.idTrabajador = t.idTrabajador) 
+                                                JOIN persona pe ON (c.DNI = pe.DNI) 
+                                                JOIN persona per ON (t.DNI = per.DNI) 
+                                                WHERE c.DNI = '$_SESSION[usuario]' AND ci.fecha >= CURDATE()
+                                                ORDER BY ci.fecha, ci.hora");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     // Puedes agregar más funciones para otros selects según sea necesario
 }
