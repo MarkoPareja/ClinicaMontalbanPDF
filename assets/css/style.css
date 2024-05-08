@@ -4,6 +4,10 @@ header{
     z-index: 150;
 }
 
+p{
+    font-family: 'Averta-Regular';
+}
+
 body{
     font-family: 'Averta-Regular';
 }
