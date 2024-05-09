@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-lg bg-body-tertiary custom-nav" style="background-color: white !important;">
 
           <a href="index.php">
-            <div><img src="assets/img/LOGO-COLOR.png" width="80px" class="imagenlogo" height="80px" alt="LOGOTIPO DE LA EMPRESA"></div>
+            <div><img src="assets/img/LOGO-COLOR.png" width="80px" class="imagenlogo" height="80px" alt="Logotipo de Clinica Montalban"></div>
           </a> 
           <div class="titulo">Clinica</div>
           <div class="titulo2">Montalban</div>
@@ -66,7 +66,7 @@
     <header class="headeroculto">
     <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-            <a href="index.php"><div><img src="assets/img/LOGO-COLOR.png" width="55px" class="imagenlogo-pequeño" height="55px" alt="LOGOTIPO DE LA EMPRESA"></div></a> 
+            <a href="index.php"><div><img src="assets/img/LOGO-COLOR.png" width="55px" class="imagenlogo-pequeño" height="55px" alt="Logotipo de Clinica Montalban"></div></a> 
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -120,13 +120,13 @@
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner" style="max-height: 650px;">
             <div class="carousel-item active">
-                <img src="assets/img/carousel1.jpg" class="d-block w-100 img-fluid" alt="...">
+                <img src="assets/img/carousel1.jpg" class="d-block w-100 img-fluid" alt="Preocupate solo de tu salud">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/carousel2.jpg" class="d-block w-100 img-fluid" alt="...">
+                <img src="assets/img/carousel2.jpg" class="d-block w-100 img-fluid" alt="Hacemos de tu salud nuestra prioridad">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/carousel3.jpg" class="d-block w-100 img-fluid" alt="...">
+                <img src="assets/img/carousel3.jpg" class="d-block w-100 img-fluid" alt="Habitaciones donde te sentiras como en casa">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -151,11 +151,11 @@
           <p class="p1-2">El equipo de Clinica Montalban trabaja con gran profesionalidad para ofrecer y garantizar una asistencia de primera calidad.</p>
           <a href="qsindex.php" style="border-radius: 10px; box-shadow: 0  2px 8px 5px rgba(0, 0, 0, 0.15);" type="button" class="btn btn-light sm-01">Saber más</a>
         </div>
-        <img class="img1" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/img1.jpg">
+        <img class="img1" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/img1.jpg" alt="Medicos, Enfermeros trabajando en una sala quirurgica, operando">
       </div>
 
       <div class="flex1 flex2">
-        <img class="img2" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/especialistas.jpg">
+        <img class="img2" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/especialistas.jpg" alt="Equipo de enfermeros y medicos especialistas, en el hospital, clinica, medico">
         <div class="texto1">
           <p style="font-size: 40px; font-weight: bolder;">Especialistas</p>
           <p style="width: 600px; font-size: 30px;">El equipo de Clinica Montalban consta con los mejores profesionales para cada una de las especialidades en la sanidad.</p>
@@ -169,34 +169,34 @@
           <p class="p1-2">El equipo de Clinica Montalban consta con los mejores profesionales para cada una de las especialidades en la sanidad.</p>
           <a href="eindex.php" style="border-radius: 10px; box-shadow: 0  2px 8px 5px rgba(0, 0, 0, 0.15);" type="button" class="btn btn-light sm-01">Saber más</a>
         </div>
-        <img class="img2" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/especialistas.jpg">
+        <img class="img2" style="border-radius: 20px; box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);" width="500px" src="assets/img/especialistas.jpg" alt="Equipo de enfermeros y medicos especialistas, en el hospital, clinica, medico">
       </div>
     </div>
                 
     <div class="flexcartas">
       <div class="card" style="width: 22rem;">
-        <img src="assets/img/icono_curar-1.png" width="50px" alt="">
+        <img src="assets/img/icono_curar-1.png" width="50px" alt="Logitopo Medico">
         <div class="card-body">
           <h5 class="card-title">Curar</h5>
           <p class="card-text">Nuestro equipo de profesionales combina talento, vocación, pasión y una amplia trayectoria para brindarte una atención médica eficiente y personalizada.</p>
         </div>
-        <img src="assets/img/tarjeta1.jpg" class="card-img-top img-top" alt="...">    
+        <img src="assets/img/tarjeta1.jpg" class="card-img-top img-top" alt="Chica tocandose el corazon sanando heridas">    
       </div>
       <div class="card" style="width: 22rem;">
-        <img src="assets/img/Icono_cuidar-1.png" width="55px" alt="">
+        <img src="assets/img/Icono_cuidar-1.png" width="55px" alt="Logotipo dandose la mano">
         <div class="card-body">
           <h5 class="card-title">Cuidar</h5>
           <p class="card-text">Nos comprometemos a ofrecerte una alta capacidad médica con un trato humano y cercano para crear un entorno de confianza entre profesionales y pacientes.</p>
         </div>
-        <img src="assets/img/tarjeta2.jpg" class="card-img-top img-top" alt="...">
+        <img src="assets/img/tarjeta2.jpg" class="card-img-top img-top" alt="Equipo de Clinica Montalban ayudando a una persona mayor a levantarse">
       </div>
       <div class="card" style="width: 22rem;">
-        <img src="assets/img/iconoservicios-1.png" width="40px" alt="">
+        <img src="assets/img/iconoservicios-1.png" width="40px" alt="Logotipo lista servicios">
         <div class="card-body">
           <h5 class="card-title">Mi Servicios</h5>
           <p class="card-text">Queremos que tu paso por Clinica Montalban sea una experiencia agradable para ti. Por eso, ponemos a t u disposición una serie de servicios adicionales con la finalidad de mejorar tu satisfacción y amenizar tu estancia.</p>
         </div>
-        <img src="assets/img/tarjeta3.jpg" style="background-size: cover;" class="card-img-top img-top" alt="...">
+        <img src="assets/img/tarjeta3.jpg" style="background-size: cover;" class="card-img-top img-top" alt="Equipo tecnoligico que posee Clinica Montalban">
       </div>
     </div>
 
@@ -204,7 +204,7 @@
       <div class="columnas">
         <div class="columna1">
           <div class="flexfooter1">
-              <a href="index.php"><img src="assets/img/LOGO-COLOR.png" width="52px" height="52px" alt="LOGOTIPO DE LA EMPRESA"></a>  
+              <a href="index.php"><img src="assets/img/LOGO-COLOR.png" width="52px" height="52px" alt="Logotipo de Clinica Montalban"></a>  
               <div class="titulo3">Clinica</div>
               <div class="titulo4">Montalban</div>
           </div>
@@ -215,9 +215,9 @@
             contacto@clinicamontalban.com<br>
           </p>
           <div class="flexfooter2">
-              <a href="https://www.instagram.com/clinica.montalban/" class="instagram"><img width="30px" src="assets/img/instagram.png"></a>
-              <a href="" class="instagram"><img width="30px" src="assets/img/facebook.png"></a>
-              <a href="" class="instagram"><img width="30px" src="assets/img/twitter.png"></a>
+              <a href="https://www.instagram.com/clinica.montalban/" class="instagram"><img width="30px" src="assets/img/instagram.png" alt="Instagram Clinica Montalban"></a>
+              <a href="" class="instagram"><img width="30px" src="assets/img/facebook.png" alt="Facebook Clinica Montalban"></a>
+              <a href="" class="instagram"><img width="30px" src="assets/img/twitter.png" alt="Twitter Clinica Montalban"></a>
           </div>
         </div>
       
