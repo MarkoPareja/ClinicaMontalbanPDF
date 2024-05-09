@@ -180,7 +180,7 @@
           <h5 class="card-title">Curar</h5>
           <p class="card-text">Nuestro equipo de profesionales combina talento, vocación, pasión y una amplia trayectoria para brindarte una atención médica eficiente y personalizada.</p>
         </div>
-        <img src="assets/img/tarjeta1.png" class="card-img-top" alt="...">      
+        <img src="assets/img/tarjeta1.jpg" class="card-img-top img-top" alt="...">    
       </div>
       <div class="card" style="width: 22rem;">
         <img src="assets/img/Icono_cuidar-1.png" width="55px" alt="">
@@ -188,7 +188,7 @@
           <h5 class="card-title">Cuidar</h5>
           <p class="card-text">Nos comprometemos a ofrecerte una alta capacidad médica con un trato humano y cercano para crear un entorno de confianza entre profesionales y pacientes.</p>
         </div>
-        <img src="assets/img/tarjeta2.jpg" class="card-img-top" alt="...">
+        <img src="assets/img/tarjeta2.jpg" class="card-img-top img-top" alt="...">
       </div>
       <div class="card" style="width: 22rem;">
         <img src="assets/img/iconoservicios-1.png" width="40px" alt="">
@@ -196,7 +196,7 @@
           <h5 class="card-title">Mi Servicios</h5>
           <p class="card-text">Queremos que tu paso por Clinica Montalban sea una experiencia agradable para ti. Por eso, ponemos a t u disposición una serie de servicios adicionales con la finalidad de mejorar tu satisfacción y amenizar tu estancia.</p>
         </div>
-        <img src="assets/img/tarjeta3.jpg" style="background-size: cover;" class="card-img-top" alt="...">
+        <img src="assets/img/tarjeta3.jpg" style="background-size: cover;" class="card-img-top img-top" alt="...">
       </div>
     </div>
 

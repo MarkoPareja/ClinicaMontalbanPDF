@@ -4,17 +4,20 @@ header{
     z-index: 150;
 }
 
-p{
-    font-family: 'Averta-Regular';
-}
-
-body{
-    font-family: 'Averta-Regular';
+*{
+    /*font-family: 'Averta-Regular';*/
 }
 
 .main-header{
     width: 100%;
 }
+
+.img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 200px; /* ajusta la altura según lo que desees recortar */
+}
+
 
 .imagenlogo{
     margin-top: 5px;
@@ -25,14 +28,12 @@ body{
     margin-top: 10px;
     font-size: 35px;
     color: #017eff;
-    font-family: 'Averta-Regular';
 }
 
 .titulo2{
     margin-top: 10px;
     font-size: 35px;
     color: #00da67;
-    font-family: 'Averta-Regular';
 }
 
 
