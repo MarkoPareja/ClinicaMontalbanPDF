@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="assets/css/login_style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+<?php 
+session_start();
+
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+    unset($_SESSION['error']); // Limpiar el mensaje de error para la próxima vez
+    echo '<script>activarRecovery();</script>';
+} else {
+    $error = ""; // Si no hay error, muestra una cadena vacía
+}
+?>
 <body>
 
     <!-- |||| Inicio Sesion |||| -->
@@ -130,18 +141,31 @@
                 <form action="php/recuperacion_be.php" method="POST" class="form">
                     <label class="recovery-text">
                         <i class='bx bx-envelope' ></i>
-                        <input type="text" name="correo_recovery" placeholder="Correo Electronico" required>
+                        <input type="text" name="correo_recovery" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" minlength="5" maxlength="50" placeholder="Correo Electronico" required>
                         <input type="hidden" name="formulario" value="recuperacion">
                     </label>
                     <br>
                     <input type="submit" value="Enviar">
                     <br><br>
                     <a href="">Volver</a>
+                    <p id="errorCorreo"><?php $error;?></p>
                 </form>
             </div>
         </div>
     </div>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/loginScript.js"></script>
+    <script>
+        function activarRecovery(){
+            formLogin = document.querySelector(".login"),
+            formRecovery = document.querySelector(".recovery"),
+            formBack = document.querySelector(".back");
+
+            formLogin.classList.add("hide");
+            formRecovery.classList.remove("hide-recovery");
+            formLogin.style.visibility = "hidden"; // Oculta el elemento
+            formRecovery.style.visibility = "visible"; // Asegura que el elemento esté visible
+        }
+    </script>
 </body>
 </html>

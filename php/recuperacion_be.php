@@ -1,8 +1,11 @@
 <?php
-
+session_start();
 require '../vendor/autoload.php';
 include 'conexion_be.php';
+require_once('database.php');
 
+// Crear una instancia de la clase Database
+$database = new Database();
 
 $formulario = $_POST['formulario'];
 $codigo = rand(1, 9999);
@@ -11,12 +14,14 @@ $correo = $_POST['correo_recovery'];
 
 if ($formulario === 'recuperacion') {
     
-    $consulta_correo = "SELECT * FROM persona WHERE correo = '$correo'";
+    //$consulta_correo = "SELECT * FROM persona WHERE correo = '$correo'";
     
-    $resultado_correo = mysqli_query($conexion, $consulta_correo);
+    //$resultado_correo = mysqli_query($conexion, $consulta_correo);
 
-    if (mysqli_num_rows($resultado_correo) > 0) {
+    $resultado_correo = $database->consultaCorreo($correo);
 
+    //if (mysqli_num_rows($resultado_correo) > 0) {
+    if(!empty($resultado_correo)){   
         include 'correoHelper.php';
 
         if (enviarCorreo($correo, 'Codigo de verificacion',$cuerpo, $codigo, $enlace)) {
@@ -30,13 +35,14 @@ if ($formulario === 'recuperacion') {
 
 
         }  else {
-        
-	    echo '<script>alert("El correo introducido no existe, revisa los datos"); window.location.href="../login.php";</script>';
-	}
+	        $_SESSION['error'] = "El correo introducido no existe, revisa los datos";
+            header("Location: {$_SERVER['HTTP_REFERER']}");
+            exit();
+	    }
     } else {
-	
-	echo '<script>alert("Error al enviar el correo"); window.location.href="../login.php";</script>';
-
+    $_SESSION['error'] = "Error al enviar el correo";
+    header("Location: {$_SERVER['HTTP_REFERER']}");
+    exit();
     }
 
 } elseif ($formulario === 'codigo') {

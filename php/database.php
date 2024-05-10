@@ -76,6 +76,12 @@ class Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function consultaCorreo($correo){
+        $statement = $this->connection->prepare("SELECT * FROM persona WHERE correo = '$correo'");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     // Puedes agregar más funciones para otros selects según sea necesario
 }
 
