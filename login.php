@@ -13,7 +13,7 @@
 <?php 
 session_start();
 
-if (isset($_SESSION['error'])) {
+if (isset(echo "<script>localStorage.getItem('error');</script>")) {
     $error = $_SESSION['error'];
     unset($_SESSION['error']); // Limpiar el mensaje de error para la próxima vez
     echo '<script>activarRecovery();</script>';
@@ -157,6 +157,7 @@ if (isset($_SESSION['error'])) {
     <script src="assets/js/loginScript.js"></script>
     <script>
         function activarRecovery(){
+            console.log("Hola esto es prueba");
             formLogin = document.querySelector(".login"),
             formRecovery = document.querySelector(".recovery"),
             formBack = document.querySelector(".back");

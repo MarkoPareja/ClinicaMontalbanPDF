@@ -11,7 +11,6 @@ $formulario = $_POST['formulario'];
 $codigo = rand(1, 9999);
 $correo = $_POST['correo_recovery'];
 
-
 if ($formulario === 'recuperacion') {
     
     //$consulta_correo = "SELECT * FROM persona WHERE correo = '$correo'";
@@ -36,11 +35,13 @@ if ($formulario === 'recuperacion') {
 
         }  else {
 	        $_SESSION['error'] = "El correo introducido no existe, revisa los datos";
+            echo "<script>localStorage.setItem('error', 'El correo introducido no existe, revisa los datos');</script>";
             header("Location: {$_SERVER['HTTP_REFERER']}");
             exit();
 	    }
     } else {
     $_SESSION['error'] = "Error al enviar el correo";
+    echo "<script>localStorage.setItem('error', 'Error al enviar el correo');</script>";
     header("Location: {$_SERVER['HTTP_REFERER']}");
     exit();
     }

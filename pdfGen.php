@@ -340,6 +340,14 @@ protected $T128;                                         // Tableau des codes 12
         $this->_out($s);
     }
 
+    function MultiCellWithMaxLineLength($w, $h, $text, $maxLineLength, $linea) {
+        $lines = str_split($text, $maxLineLength);
+        foreach ($lines as $line) {
+            $this->MultiCell($w, $h, $line);
+            $this->Ln($linea); // Altura de la línea que desees
+        }
+    }
+
 }
 
 $pdf = new PDF();
@@ -487,10 +495,18 @@ foreach ($database->infoDetalleConsulta($_POST['cita']) as $consul) {
     $txt = utf8_decode($txt);
     $pdf->WriteHTML($txt);
 
+    $maxLineLength = 20;
     $pdf->SetXY(167, $y); 
     $txt = $consul['obs'];
     $txt = utf8_decode($txt);
-    $pdf->WriteHTML($txt);
+    $salto = $y;
+    $lines = str_split($txt, $maxLineLength);
+    foreach ($lines as $line) {
+        $salto += 3.2;
+        $pdf->MultiCell(0, 4, $line);
+        $pdf->SetXY(167, $salto); 
+    }
+    //$pdf->WriteHTML($txt);
 
     $pdf->SetLineWidth(0.30);
     $pdf->Line(15,$nivel,198,$nivel);
@@ -552,6 +568,6 @@ $apellidoDecode = utf8_decode($apellidoTrim);
 
 $pdf->SetLeftMargin(45);
 $pdf->SetFontSize(14);
-//$pdf->Output();
-$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
+$pdf->Output();
+//$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
 ?>
