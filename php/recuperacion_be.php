@@ -35,15 +35,23 @@ if ($formulario === 'recuperacion') {
 
         }  else {
 	        $_SESSION['error'] = "El correo introducido no existe, revisa los datos";
-            echo "<script>localStorage.setItem('error', 'El correo introducido no existe, revisa los datos');</script>";
-            header("Location: {$_SERVER['HTTP_REFERER']}");
+            echo "<script>
+                    localStorage.setItem('error', 'El correo introducido no existe, revisa los datos');
+                    setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                    }, 500); // 500 milisegundos de retraso
+                  </script>";
             exit();
 	    }
     } else {
-    $_SESSION['error'] = "Error al enviar el correo";
-    echo "<script>localStorage.setItem('error', 'Error al enviar el correo');</script>";
-    header("Location: {$_SERVER['HTTP_REFERER']}");
-    exit();
+        $_SESSION['error'] = "Error al enviar el correo";
+        echo "<script>
+                localStorage.setItem('error', 'Error al enviar el correo');
+                setTimeout(function() {
+                    window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                }, 500); // 500 milisegundos de retraso
+              </script>";
+        exit();
     }
 
 } elseif ($formulario === 'codigo') {

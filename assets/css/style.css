@@ -42,6 +42,22 @@ header{
     flex-direction: row-reverse;
 }
 
+.hide {
+    display: none;
+}
+
+.hide-recovery {
+    display: block;
+}
+
+.recovery {
+    visibility: hidden; /* o visible según tu lógica */
+}
+
+#errorCorreo{
+    color: red;
+}
+
 .rectangulo{
     background-color: rgb(151, 212, 154);
     outline: none;

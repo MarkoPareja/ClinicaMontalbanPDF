@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,17 +14,6 @@
     <link rel="stylesheet" href="assets/css/login_style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<?php 
-session_start();
-
-if (isset(echo "<script>localStorage.getItem('error');</script>")) {
-    $error = $_SESSION['error'];
-    unset($_SESSION['error']); // Limpiar el mensaje de error para la próxima vez
-    echo '<script>activarRecovery();</script>';
-} else {
-    $error = ""; // Si no hay error, muestra una cadena vacía
-}
-?>
 <body>
 
     <!-- |||| Inicio Sesion |||| -->
@@ -148,7 +141,7 @@ if (isset(echo "<script>localStorage.getItem('error');</script>")) {
                     <input type="submit" value="Enviar">
                     <br><br>
                     <a href="">Volver</a>
-                    <p id="errorCorreo"><?php $error;?></p>
+                    <p id="errorCorreo" style="color: red;"><?php $error;?></p>
                 </form>
             </div>
         </div>
@@ -156,11 +149,26 @@ if (isset(echo "<script>localStorage.getItem('error');</script>")) {
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/loginScript.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el mensaje de error de localStorage
+            var error = localStorage.getItem('error');
+            if (error) {
+                activarRecovery();
+                // Mostrar el error en el elemento con id 'errorCorreo'
+                document.getElementById('errorCorreo').innerText = error;
+                // Limpiar el error de localStorage para futuras visitas
+                localStorage.removeItem('error');
+            }
+
+            document.getElementById('recovery-link').addEventListener('click', function(event) {
+                event.preventDefault();
+                activarRecovery();
+            });
+        });
+
         function activarRecovery(){
-            console.log("Hola esto es prueba");
-            formLogin = document.querySelector(".login"),
-            formRecovery = document.querySelector(".recovery"),
-            formBack = document.querySelector(".back");
+            let formLogin = document.querySelector(".login");
+            let formRecovery = document.querySelector(".recovery");
 
             formLogin.classList.add("hide");
             formRecovery.classList.remove("hide-recovery");
