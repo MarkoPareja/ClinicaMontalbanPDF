@@ -70,7 +70,7 @@ class Database {
                                                 JOIN personal t ON (ci.idTrabajador = t.idTrabajador) 
                                                 JOIN persona pe ON (c.DNI = pe.DNI) 
                                                 JOIN persona per ON (t.DNI = per.DNI) 
-                                                WHERE c.DNI = '$_SESSION[usuario]' AND ci.fecha >= CURDATE()
+                                                WHERE c.DNI = '$_SESSION[usuario]' AND ci.estado = 'Pendiente' AND ci.fecha >= CURDATE()
                                                 ORDER BY ci.fecha, ci.hora");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);

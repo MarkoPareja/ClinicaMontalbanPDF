@@ -42,7 +42,7 @@ header{
     flex-direction: row-reverse;
 }
 
-.hide {
+.hide{
     display: none;
 }
 
@@ -57,6 +57,19 @@ header{
 #errorCorreo{
     color: red;
 }
+
+.alerta{
+    height: 70px;
+}
+
+.alerta-boton{
+    width: 25px;
+}
+
+.boton-cerrar{
+    margin-top: 5px;
+}
+
 
 .rectangulo{
     background-color: rgb(151, 212, 154);

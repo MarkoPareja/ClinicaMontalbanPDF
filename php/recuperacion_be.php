@@ -34,9 +34,9 @@ if ($formulario === 'recuperacion') {
 
 
         }  else {
-	        $_SESSION['error'] = "El correo introducido no existe, revisa los datos";
+            $_SESSION['error'] = "Error al enviar el correo";
             echo "<script>
-                    localStorage.setItem('error', 'El correo introducido no existe, revisa los datos');
+                    localStorage.setItem('error', 'Error al enviar el correo');
                     setTimeout(function() {
                         window.location.href = '{$_SERVER['HTTP_REFERER']}';
                     }, 500); // 500 milisegundos de retraso
@@ -44,9 +44,9 @@ if ($formulario === 'recuperacion') {
             exit();
 	    }
     } else {
-        $_SESSION['error'] = "Error al enviar el correo";
+        $_SESSION['error'] = "El correo introducido no existe, revisa los datos";
         echo "<script>
-                localStorage.setItem('error', 'Error al enviar el correo');
+                localStorage.setItem('error', 'El correo introducido no existe, revisa los datos');
                 setTimeout(function() {
                     window.location.href = '{$_SERVER['HTTP_REFERER']}';
                 }, 500); // 500 milisegundos de retraso
@@ -87,8 +87,13 @@ if (mysqli_num_rows($resultCompareCode) > 0) {
         }else{
 
     		// No hay filas en el resultado o error en la consulta
-    		echo '<script>alert("Error al verificar el código de comparación."); window.location.href="../login.php";</script>';
-
+    		//echo '<script>alert("Error al verificar el código de comparación."); window.location.href="../login.php";</script>';
+            echo "<script>
+                localStorage.setItem('error', 'Error al verificar el código de comparación');
+                setTimeout(function() {
+                    window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                }, 500); // 500 milisegundos de retraso
+              </script>";
             }
 
         }

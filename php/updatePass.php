@@ -19,9 +19,20 @@ if ($resultDni && mysqli_num_rows($resultDni) > 0) {
         $resultUpdate = mysqli_query($conexion, $updateContra);
 
         if ($resultUpdate) {
-            echo '<script>alert("La contraseña se ha actualizado correctamente!"); window.location.href="../index.php";</script>';
+            echo "<script>
+                localStorage.setItem('token', 'La contraseña se ha actualizado correctamente!');
+                setTimeout(function() {
+                    window.location.href = '../index.php';
+                }, 500); // 500 milisegundos de retraso
+              </script>";
         } else {
-            echo 'Error al actualizar la contraseña: ' . mysqli_error($conexion);
+            echo "<script>
+                localStorage.setItem('token', 'Error al actualizar la contraseña: ".mysqli_error($conexion) . "');
+                setTimeout(function() {
+                    window.location.href = '../index.php';
+                }, 500); // 500 milisegundos de retraso
+              </script>";
+            
         }
     } else {
         echo 'El token no coincide';

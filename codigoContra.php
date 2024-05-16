@@ -47,6 +47,8 @@ include "php/getCorreo.php";
                     <p id="codigoExpirado" style="color: red; display: none;">Código de verificación expirado</p>
                     <br>
                     <p><a href="/login.php">¿Quieres volver al inicio?</a></p>
+                    <br><br>
+                    <p id="errorCorreo" style="color: red;"><?php $error;?></p>
                 </form>
             </div>
         </div>
@@ -54,6 +56,18 @@ include "php/getCorreo.php";
     <script src="assets/js/temporizador.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/login_script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el mensaje de error de localStorage
+            var error = localStorage.getItem('error');
+            if (error) {
+                // Mostrar el error en el elemento con id 'errorCorreo'
+                document.getElementById('errorCorreo').innerText = error;
+                // Limpiar el error de localStorage para futuras visitas
+                localStorage.removeItem('error');
+            }
+        });
+    </script>
 </body>
 
 </html>

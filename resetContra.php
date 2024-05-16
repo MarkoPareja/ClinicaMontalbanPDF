@@ -54,6 +54,8 @@ include "php/getToken.php"
                     <input id="botonReset" type="button" value="Cambiar contraseña" onclick="validarContraseñas()">
                     <br><br>
                     <p><a href="/login.php">¿Quieres volver al inicio?</a></p>
+                    <br><br>
+                    <p id="errorCorreo" style="color: red;"><?php $error;?></p>
                 </form>
                 <p id="mensajeError" style="color: red; display: none;">Las contraseñas no coinciden.</p>
             </div>
@@ -61,5 +63,17 @@ include "php/getToken.php"
     </div>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/resetScript.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el mensaje de error de localStorage
+            var error = localStorage.getItem('error');
+            if (error) {
+                // Mostrar el error en el elemento con id 'errorCorreo'
+                document.getElementById('errorCorreo').innerText = error;
+                // Limpiar el error de localStorage para futuras visitas
+                localStorage.removeItem('error');
+            }
+        });
+    </script>
 </body>
 </html>

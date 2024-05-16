@@ -141,6 +141,7 @@ session_start();
                     <input type="submit" value="Enviar">
                     <br><br>
                     <a href="">Volver</a>
+                    <br><br>
                     <p id="errorCorreo" style="color: red;"><?php $error;?></p>
                 </form>
             </div>
