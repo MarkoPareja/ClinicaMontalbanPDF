@@ -1,17 +1,16 @@
 <?php
 include 'conexion_be.php';
 session_start();
-
 // Check if the form fields are set
 if (
-    isset($_POST['nombre']) &&
-    isset($_POST['apellido']) &&
+    isset($_POST['nombre1']) &&
+    isset($_POST['apellido1']) &&
     isset($_POST['telefono']) &&
     isset($_POST['direccion'])
 ) {
     // Retrieve the values from the form
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellido'];
+    $nombre = $_POST['nombre1'];
+    $apellidos = $_POST['apellido1'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
 

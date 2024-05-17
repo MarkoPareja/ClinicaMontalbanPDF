@@ -5,6 +5,7 @@
 session_start();
 include 'php/conexion_be.php';
 include 'php/getDatosCuenta.php';
+require_once('php/database.php');
 
 // Verificar si hay una sesión de usuario iniciada
 if (!isset($_SESSION['usuario'])) {
@@ -12,6 +13,9 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
+// Crear una instancia de la clase Database
+$database = new Database();
+$usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
 ?>
 <head>
 
@@ -60,20 +64,33 @@ if (!isset($_SESSION['usuario'])) {
         <div class="form-row">
             <div class="form-group col-md-6 nombre">
                 <label for="inputName4">Nombre</label>
-                <input type="text" class="form-control" name="nombre" id="inputName4" placeholder="Nombre" value="<?php echo isset($nombre) ? $nombre : ''; ?>">
+                <input type="text" class="form-control" name="nombre" id="inputName4" placeholder="Nombre" value="<?php echo isset($nombre) ? $nombre : ''; ?>" disabled>
+                <input type="text" class="form-control" name="nombre1" id="inputName4" placeholder="Nombre" value="<?php echo isset($nombre) ? $nombre : ''; ?>" hidden>
             </div>
             <div class="form-group col-md-6 campo">
                 <label for="inputSurname4">Apellidos</label>
-                <input type="text" class="form-control" name="apellido" id="inputSurname4" placeholder="Apellido" value="<?php echo isset($apellido) ? $apellido : ''; ?>">
+                <input type="text" class="form-control" name="apellido" id="inputSurname4" placeholder="Apellido" value="<?php echo isset($apellido) ? $apellido : ''; ?>" disabled>
+                <input type="text" class="form-control" name="apellido1" id="inputSurname4" placeholder="Apellido" value="<?php echo isset($apellido) ? $apellido : ''; ?>" hidden>
             </div>
             <div class="form-group col-md-6 campo">
                 <label for="dni">DNI</label>
                 <input type="text" class="form-control" name="dni" id="dni" placeholder="<?php echo isset($dni) ? $dni : ''; ?>" disabled>
             </div>
+            <?php if($usuario[0]['usuario'] === 0){?>
             <div class="form-group col-md-6 campo">
                 <label for="tsi">TSI</label>
                 <input type="text" class="form-control" name="tsi" id="tsi" placeholder="<?php echo isset($tsi) ? $tsi : ''; ?>" disabled>
             </div>
+            <?php } else{?>
+                <div class="form-group col-md-6 campo">
+                <label for="especialidad">Especialidad</label>
+                <input type="text" class="form-control" name="especialidad" id="especialidad" placeholder="<?php echo isset($especialidad) ? $especialidad : ''; ?>" disabled>
+            </div>
+            <div class="form-group col-md-6 campo">
+                <label for="correo">Correo Corporativo</label>
+                <input type="text" class="form-control" name="correo" id="correo" placeholder="<?php echo isset($correo) ? $correo : ''; ?>" disabled>
+            </div>
+            <?php }?>
             <div class="form-group campo">
                 <label for="inputAddress">Dirección</label>
                 <input type="text" class="form-control" name="direccion" id="inputAddress" placeholder="Dirección" value="<?php echo isset($direccion) ? $direccion : ''; ?>">
@@ -83,6 +100,7 @@ if (!isset($_SESSION['usuario'])) {
                 <label for="inputPhone4">Telefono</label>
                 <input type="tel" class="form-control" name="telefono" id="inputPhone4" placeholder="Telefono" value="<?php echo isset($telefono) ? $telefono : ''; ?>">
             </div>
+            <input type="number" name="tipoUsuario" id="tipoUsuario" value="<?php echo $usuario[0]['usuario'] ?>" hidden>
         </div>
         </div>
         <div class="form-group campo">

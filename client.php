@@ -12,6 +12,7 @@ require_once('php/database.php');
 
 // Crear una instancia de la clase Database
 $database = new Database();
+$usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
 ?>
 <head>
 
@@ -75,7 +76,7 @@ $database = new Database();
         
 
     </header>
-
+<?php if($usuario[0]['usuario'] === 0){ ?>
     <section class="title-top">
         <h1>Selección de servicios</h1>
     </section>
@@ -298,6 +299,23 @@ $database = new Database();
 
         </div>
     </div>
+<?php } else if($usuario[0]['usuario'] === 1) { ?>
+    <section class="title-top">
+        <h1>Descargate la aplicacion</h1>
+    </section>
+    <div class="container">
+        <a href="assets/img/windows.png" class="download-button" download>
+            <img src="assets/img/windows.png" alt="Windows Logo">
+            Descargar para Windows
+        </a>
+        <a href="assets/img/linux.svg" class="download-button linux-button" download>
+            <img src="assets/img/linux.svg" alt="Linux Logo">
+            Descargar para Linux
+        </a>
+    </div>
+
+
+<?php } ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/hjsCalendar.min.js"></script>
     <script src="assets/js/clienteScript.js"></script>

@@ -12,7 +12,38 @@
     color: #041da8;
     padding: 1px; /* Añadir un relleno alrededor del contenido para separarlo del borde */
 }
+.container {
+    text-align: center;
+}
 
+.download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0078d7;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.download-button:hover {
+    background-color: #005fa3;
+}
+.download-button img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.linux-button {
+    background-color: #f7a700;
+}
+.linux-button:hover {
+    background-color: #c78500;
+}
 
 .hide{
     display: none;

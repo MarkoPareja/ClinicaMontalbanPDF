@@ -82,6 +82,12 @@ class Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function comprovacionTrabajador($dni){
+        $statement = $this->connection->prepare("SELECT EXISTS(SELECT 1 FROM `personal` WHERE dni = '$dni') AS usuario");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     // Puedes agregar más funciones para otros selects según sea necesario
 }
 

@@ -25,9 +25,22 @@ if (mysqli_stmt_num_rows($validar_login) > 0) {
     header("Location: ../client.php");
     exit;
 } else {
+    // Utiliza una consulta preparada para prevenir SQL Injection
+    $validar_login = mysqli_prepare($conexion, "SELECT DNI, password FROM personal WHERE DNI=? and password=?");
+    mysqli_stmt_bind_param($validar_login, "ss", $DNI, $contrasena);
+    mysqli_stmt_execute($validar_login);
+    mysqli_stmt_store_result($validar_login);
+
+    if (mysqli_stmt_num_rows($validar_login) > 0) {
+        $_SESSION['usuario'] = $DNI;
+    
+        header("Location: ../client.php");
+        exit;
+    } else {
     // Redirigir a la página de login con un parámetro en la URL
     header("Location: ../login.php?error=1");
     exit;
+    }
 }
 mysqli_stmt_close($validar_login);
 
