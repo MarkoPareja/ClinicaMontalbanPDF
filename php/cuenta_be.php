@@ -33,30 +33,49 @@ if (
     $update = mysqli_stmt_execute($stmt);
 
     if ($update) {
-        echo '
-        <script>
-            alert("DATOS ACTUALIZADOS!");
-            window.location.assign("../client.php"); 
-        </script>
-    ';
+        //echo '
+        //<script>
+        //    alert("DATOS ACTUALIZADOS!");
+        //    window.location.assign("../client.php"); 
+        //</script>
+        //';
+    echo "<script>
+    localStorage.setItem('cuenta', 'DATOS ACTUALIZADOS!');
+    setTimeout(function() {
+        window.location.assign('../client.php'); 
+    }, 500); // 500 milisegundos de retraso
+  </script>";
     } else {
-        echo '
-        <script>
-            alert("ERROR EN LA MODIFICACIÓN: ' . mysqli_error($conexion) . '");
-            window.location.assign("https://clinicamontalban.com/login.php"); 
-        </script>
-    ';
+        //echo '
+        //<script>
+        //    alert("ERROR EN LA MODIFICACIÓN: ' . mysqli_error($conexion) . '");
+        //    window.location.assign("https://clinicamontalban.com/login.php"); 
+        //</script>
+        //';
+    echo "<script>
+                localStorage.setItem('cuenta', 'ERROR EN LA MODIFICACIÓN: ' . mysqli_error($conexion) . '');
+                setTimeout(function() {
+                    window.location.assign('../client.php'); 
+                }, 500); // 500 milisegundos de retraso
+              </script>";
     }
 
     // Close the statement
     mysqli_stmt_close($stmt);
 } else {
-    echo '
-    <script>
-        alert("ERROR: Invalid request.");
-        window.location.assign("https://clinicamontalban.com/login.php"); 
-    </script>
-';
+    //echo '
+    //<script>
+    //    alert("ERROR: Invalid request.");
+    //    window.location.assign("https://clinicamontalban.com/login.php"); 
+    //</script>
+    //';
+echo "<script>
+                localStorage.setItem('token', 'ERROR: Invalid request.');
+                setTimeout(function() {
+                    window.location.assign('https://clinicamontalban.com/index.php'); 
+                }, 500); // 500 milisegundos de retraso
+              </script>";
+
 }
 
 // Close the database connection

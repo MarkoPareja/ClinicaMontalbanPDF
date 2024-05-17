@@ -13,6 +13,33 @@
     padding: 1px; /* Añadir un relleno alrededor del contenido para separarlo del borde */
 }
 
+
+.hide{
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hide-recovery {
+    display: block;
+}
+
+
+.alerta{
+    height: 70px;
+}
+
+.alerta-boton{
+    width: 25px;
+}
+
+.boton-cerrar{
+    margin-top: 5px;
+}
+
 /* ALL-Modals */
 
 .modals {

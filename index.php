@@ -62,22 +62,21 @@
             </div>
           </div>
           <div class="flexiniciosesion">
-            <div class="rectangulo">
+            
 
               <?php
                   // Verificar si la sesión está iniciada
                   session_start();
                   if (isset($_SESSION['usuario'])) {
                       // Si está iniciada, mostrar el botón con la función onclick
-                      echo '<a class="linksindecoracion" href="client.php"><div style="color: white; font-weight: bold;" class="entraryregistrarse">MI CUENTA</div></a>';
+                      echo '<a class="linksindecoracion" href="client.php"><div class="rectangulo"><div style="color: white; font-weight: bold;" class="entraryregistrarse">MI CUENTA</div></div></a>';
                   } else {
                       // Si no está iniciada, mostrar el enlace normal
-                      echo '<a class="linksindecoracion" href="login.php"><div style="color: white; font-weight: bold;" class="entraryregistrarse">PEDIR CITA</div></a>';
+                      echo '<a class="linksindecoracion" href="login.php"><div class="rectangulo"><div style="color: white; font-weight: bold;" class="entraryregistrarse">PEDIR CITA</div></div></a>';
                   }
               ?>
 
-            </div>
-            </div>
+          </div>
         </nav>
     </header>
 
@@ -111,22 +110,18 @@
           </li>
         </ul>
         <div class="flexiniciosesion-pequeño">
-            <div class="rectangulo-pequeño">
 
               <?php
                   // Verificar si la sesión está iniciada
                   session_start();
                   if (isset($_SESSION['usuario'])) {
                       // Si está iniciada, mostrar el botón con la función onclick
-                      echo '<a class="linksindecoracion" href="client.php"><div style="color: white; font-weight: bold;" class="entraryregistrarse">MI CUENTA</div></a>';
+                      echo '<a class="linksindecoracion" href="client.php"><div class="rectangulo-pequeño"><div style="color: white; font-weight: bold;" class="entraryregistrarse">MI CUENTA</div></div></a>';
                   } else {
                       // Si no está iniciada, mostrar el enlace normal
-                      echo '<a class="linksindecoracion" href="login.php"><div style="color: white; font-weight: bold;" class="entraryregistrarse">PEDIR CITA</div></a>';
+                      echo '<a class="linksindecoracion" href="login.php"><div class="rectangulo-pequeño"><div style="color: white; font-weight: bold;" class="entraryregistrarse">PEDIR CITA</div></div></a>';
                   }
               ?>
-
-            </div>
-            </div>
       </div>
     </div>
   </div>
@@ -271,6 +266,8 @@
                 localStorage.removeItem('token');
                 console.log("Si recibe token");
                 activarResponse();
+                setTimeout(desactivarResponseFade, 5000);
+                window.addEventListener('wheel', desactivarResponse); 
             }
             else{
               console.log("No recibe token");
@@ -286,7 +283,18 @@
         }
 
         function desactivarResponse(){
-          document.getElementById("container-alerta").classList.add("hide");
+          let alert = document.getElementById("container-alerta");
+          alert.classList.remove("hide-recovery");
+          alert.classList.add("hide");
+        }
+
+        function desactivarResponseFade(){
+          let alert = document.getElementById("container-alerta");
+          alert.classList.remove("hide-recovery");
+          alert.classList.add("fade-out");
+            setTimeout(() => {
+              alert.classList.add("hide");
+            }, 900);
         }
     </script>
 
