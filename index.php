@@ -264,13 +264,11 @@
                 document.getElementById('responsetoken').innerText = token;
                 // Limpiar el token de localStorage para futuras visitas
                 localStorage.removeItem('token');
-                console.log("Si recibe token");
                 activarResponse();
                 setTimeout(desactivarResponseFade, 5000);
                 window.addEventListener('wheel', desactivarResponse); 
             }
             else{
-              console.log("No recibe token");
               desactivarResponse();
             }
         });

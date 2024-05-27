@@ -21,7 +21,7 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
     <title>Clinica Montalban</title>
     <link rel="stylesheet" href="/assets/css/client_style.css">
     <link href="https://db.onlinewebfonts.com/c/150037e11f159dca84bc4c04549094b6?family=Averta-Regular" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/logo-ico.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo-ico.png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -308,7 +308,7 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
             <img src="assets/img/windows.png" alt="Windows Logo">
             Descargar para Windows
         </a>
-        <a href="assets/aplicacion/ClinicaMontalban-1.0-SNAPSHOT-shaded.jarff" class="download-button linux-button" id="linux" onclick="showtext('mostrar-linux')" download>
+        <a href="assets/aplicacion/ClinicaMontalban-1.0-SNAPSHOT-shaded.jar" class="download-button linux-button" id="linux" onclick="showtext('mostrar-linux')" download>
             <img src="assets/img/linux.svg" alt="Linux Logo">
             Descargar para Linux
         </a>
@@ -331,9 +331,33 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
             <h2>Pasos para realizar la instalación</h2>
             <p class="card-text">Sigue correctamente los pasos para que la aplicacion se ejecute correctamente</p>
             <ol class="list-group list-group-numbered">
-                <li class="list-group-item">Instalar JAVA 8+ (Version 8 o posterior)<div class="code-container"><button class="copy-button" onclick="copyToClipboard()">Copiar</button><pre id="code-block">sudo apt install openjdk-19-jre-headless</pre></div></li>
-                <li class="list-group-item">Instalar JAVA OPENJFX sudo apt install openjfx</li>
-                <li class="list-group-item">Ejecutar aplicación java --module-path /usr/share/openjfx/lib --add-modules javafx.controls,javafx.fxml -jar ClinicaMontalban-1.0-SNAPSHOT-shaded.jar</li>
+                <li class="list-group-item">
+                    Instalar JAVA 8+ (Version 8 o posterior)
+                    <div class="code-container-parent">
+                        <div class="code-container" id="code1">
+                            <button class="copy-button" onclick="copyToClipboard('code-block1')">Copiar</button>
+                            <pre id="code-block1">sudo apt install openjdk-19-jre-headless</pre>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Instalar JAVA OPENJFX 
+                    <div class="code-container-parent">
+                        <div class="code-container" id="code2">
+                            <button class="copy-button" onclick="copyToClipboard('code-block2')">Copiar</button>
+                            <pre id="code-block2">sudo apt install openjfx</pre>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Ejecutar aplicación 
+                    <div class="code-container-parent">
+                        <div class="code-container" id="code3">
+                            <button class="copy-button" onclick="copyToClipboard('code-block2')">Copiar</button>
+                            <pre id="code-block3">java --module-path /usr/share/openjfx/lib --add-modules javafx.controls,javafx.fxml -jar ClinicaMontalban-1.0-SNAPSHOT-shaded.jar</pre>
+                        </div>
+                    </div>
+                </li>
             </ol>
         </div>
     </div>
@@ -341,12 +365,14 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
 
 <?php } ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/hjsCalendar.min.js"></script>
-    <script src="assets/js/clienteScript.js"></script>
-    <script src="assets/js/generarVisitas.js"></script>
+<?php if($usuario[0]['usuario'] === 0) { 
+    echo "<script src='assets/js/hjsCalendar.min.js'></script>";
+    echo "<script src='assets/js/generarVisitas.js'></script>";
+    echo "<script src='assets/js/almVisitas.js'></script>";
+    echo "<script src='assets/js/clienteScript.js'></script>";
+} ?>
     <script src="assets/js/scriptModal.js"></script>
     <script src="assets/js/borrarCita.js"></script>
-    <script src="assets/js/almVisitas.js"></script>
     <script>
         /*Dropdown Menu*/
 $('.dropdown').click(function () {
@@ -386,21 +412,19 @@ $('.dropdown').click(function () {
                 document.getElementById('responsecuenta').innerText = token;
                 // Limpiar el token de localStorage para futuras visitas
                 localStorage.removeItem('cuenta');
-                console.log("Si recibe algo");
                 activarResponse();
                 setTimeout(desactivarResponseFade, 5000);
                 window.addEventListener('wheel', desactivarResponse); 
             }
             else{
-              console.log("No recibe nada");
               desactivarResponse();
             }
 
             
         });
 
-        function copyToClipboard() {
-            const codeBlock = document.getElementById('code-block').innerText;
+        function copyToClipboard(id) {
+            const codeBlock = document.getElementById(id).innerText;
             const tempTextArea = document.createElement('textarea');
             tempTextArea.value = codeBlock;
             document.body.appendChild(tempTextArea);
@@ -409,15 +433,18 @@ $('.dropdown').click(function () {
             document.body.removeChild(tempTextArea);
         }
 
-        function showtext(app){
-            let hideElement = document.getElementsByClassName("hide");
-            hideElement[1].classList.add("hide");
-            hideElement[2].classList.add("hide");
-            let alert = document.getElementById(app);
-            alert.classList.remove("hide");
-            alert.classList.add("hide-recovery");
-            alert.style.visibility = "visible"; // Asegura que el elemento esté visible
+        function showtext(app) {
+        let hideElements = document.getElementsByClassName("hide-recovery");
+        for (let element of hideElements) {
+            element.classList.remove("hide-recovery");
+            element.classList.add("hide");
         }
+
+        let alert = document.getElementById(app);
+        alert.classList.remove("hide");
+        alert.classList.add("hide-recovery");
+        alert.style.visibility = "visible"; // Asegura que el elemento esté visible
+    }
 
         function activarResponse(){
           let alert = document.getElementById("container-alerta");
@@ -443,19 +470,38 @@ $('.dropdown').click(function () {
     </script>
 </body>
 <style>
+.code-container-parent {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .code-container {
     position: relative;
     background: #282c34;
     color: #ffffff;
     padding: 20px;
-    margin-left: 50hv;
     border-radius: 8px;
-    width: fit-content;
+    /*width: fit-content;*/
+}
+#code-block1{
+    margin-left: -50px;
+    width: 400px;
+}
+#code-block2{
+    margin-left: -50px;
+    width: 400px;
+}
+
+#code-block3{
+    margin-left: -50px;
+    width: 1000px;
 }
 pre {
     margin: 0;
     font-size: 14px;
 }
+
 .copy-button {
     position: absolute;
     top: 10px;
@@ -467,6 +513,7 @@ pre {
     cursor: pointer;
     border-radius: 5px;
 }
+
 .copy-button:hover {
     background: #21a1f1;
 }
@@ -552,5 +599,5 @@ span.choose {
     background-color: #e2e2e2
 }
 
-<style>
+</style>
 </html>
