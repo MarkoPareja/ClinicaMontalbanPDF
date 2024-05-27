@@ -304,16 +304,40 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
         <h1>Descargate la aplicacion</h1>
     </section>
     <div class="container">
-        <a href="assets/img/windows.png" class="download-button" download>
+        <a href="assets/aplicacion/ClinicaMontalban.exe" class="download-button" id="windows" onclick="showtext('mostrar-windows')" download>
             <img src="assets/img/windows.png" alt="Windows Logo">
             Descargar para Windows
         </a>
-        <a href="assets/img/linux.svg" class="download-button linux-button" download>
+        <a href="assets/aplicacion/ClinicaMontalban-1.0-SNAPSHOT-shaded.jarff" class="download-button linux-button" id="linux" onclick="showtext('mostrar-linux')" download>
             <img src="assets/img/linux.svg" alt="Linux Logo">
             Descargar para Linux
         </a>
+        <div id="mostrar-windows" class="hide">
+            <br>
+            <hr>
+            <br>
+            <h2>Pasos para realizar la instalación</h2>
+            <p class="card-text">Sigue correctamente los pasos para que la aplicacion se ejecute correctamente</p>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item"><a href="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=249833_43d62d619be4e416215729597d70b8ac">Instalar JAVA 8+ (Version 8 o posterior)</a></li>
+                <li class="list-group-item"><a href="https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe">Instalar JAVA JDK 17.0.1+ (Version 17.0.1 o posterior)</a></li>
+                <li class="list-group-item">Ejecutar aplicación</li>
+            </ol>
+        </div>
+        <div id="mostrar-linux" class="hide">
+            <br>
+            <hr>
+            <br>
+            <h2>Pasos para realizar la instalación</h2>
+            <p class="card-text">Sigue correctamente los pasos para que la aplicacion se ejecute correctamente</p>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Instalar JAVA 8+ (Version 8 o posterior)<div class="code-container"><button class="copy-button" onclick="copyToClipboard()">Copiar</button><pre id="code-block">sudo apt install openjdk-19-jre-headless</pre></div></li>
+                <li class="list-group-item">Instalar JAVA OPENJFX sudo apt install openjfx</li>
+                <li class="list-group-item">Ejecutar aplicación java --module-path /usr/share/openjfx/lib --add-modules javafx.controls,javafx.fxml -jar ClinicaMontalban-1.0-SNAPSHOT-shaded.jar</li>
+            </ol>
+        </div>
     </div>
-
+   
 
 <?php } ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -371,7 +395,29 @@ $('.dropdown').click(function () {
               console.log("No recibe nada");
               desactivarResponse();
             }
+
+            
         });
+
+        function copyToClipboard() {
+            const codeBlock = document.getElementById('code-block').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeBlock;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+        }
+
+        function showtext(app){
+            let hideElement = document.getElementsByClassName("hide");
+            hideElement[1].classList.add("hide");
+            hideElement[2].classList.add("hide");
+            let alert = document.getElementById(app);
+            alert.classList.remove("hide");
+            alert.classList.add("hide-recovery");
+            alert.style.visibility = "visible"; // Asegura que el elemento esté visible
+        }
 
         function activarResponse(){
           let alert = document.getElementById("container-alerta");
@@ -397,6 +443,33 @@ $('.dropdown').click(function () {
     </script>
 </body>
 <style>
+.code-container {
+    position: relative;
+    background: #282c34;
+    color: #ffffff;
+    padding: 20px;
+    margin-left: 50hv;
+    border-radius: 8px;
+    width: fit-content;
+}
+pre {
+    margin: 0;
+    font-size: 14px;
+}
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #61dafb;
+    border: none;
+    color: #000;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.copy-button:hover {
+    background: #21a1f1;
+}
 
 span.msg,
 span.choose {
