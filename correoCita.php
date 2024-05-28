@@ -27,11 +27,11 @@
                         <td align="center">
                             <div style="background-color: rgba(128, 128, 128, 0.404); width: 500px; height: 150px; border-radius: 10px;">
                                 <br>    
-                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">DIA : $dia</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #1157cc;">DIA : $dia</span>
                                 <br>
-                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">HORA : $hora</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #1157cc;">HORA : $hora</span>
                                 <br>
-                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">MEDICO : $medico</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #1157cc;">MEDICO : $medico</span>
                             </div>
                         </td>
                     </tr>
