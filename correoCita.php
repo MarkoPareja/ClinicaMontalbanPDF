@@ -25,18 +25,18 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 500px; height: 160px; border-radius: 10px;">
+                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 500px; height: 150px; border-radius: 10px;">
                                 <br>    
-                                <span style="font-size: 25px; font-weight: bold;">DIA : $dia</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">DIA : $dia</span>
                                 <br>
-                                <span style="font-size: 25px; font-weight: bold;">HORA : $hora</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">HORA : $hora</span>
                                 <br>
-                                <span style="font-size: 25px; font-weight: bold;">MEDICO : $medico</span>
+                                <span style="font-size: 25px; font-weight: bold; color: #2788cc;">MEDICO : $medico</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="margin-top: 20px; color: #000000;">
+                        <td align="center" style="margin-top: 20px;">
                             <a href="https://clinicamontalban.com">
                                 <img src="https://clinicamontalban.com/assets/img/LOGO-COLOR.png" width="70" alt="LOGOTIPO DE LA EMPRESA">
                             </a>
