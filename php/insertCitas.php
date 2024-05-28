@@ -4,14 +4,14 @@
         y hace un insert a la base de datos con una cita nueva. */
     include 'conexion_be.php';
     include "correoHelper.php";
-    require('php/database.php');
+    require_once('database.php');
     session_start();
-    
+    $database = new Database();
     if (!isset($_SESSION['usuario'])) {
         header("Location: ../login.php");
         exit;
     }
-    
+
     $idTrabajador = $_POST['idTrabajador'];
     $idCliente = $_POST['idCliente'];
     $fecha = $_POST['fecha'];
@@ -33,13 +33,17 @@
 
     $response = array();
 
+    $correo = $database->correoCliente($DNI_USER);
+
     if($result){
+        //$response['mensaje'] = $correo[0]['correo'];
         $response['success'] = true;
         $response['message'] = 'Cita insertada con éxito';
-        $correo = $database->correoCliente($_SESSION['usuario']);
         $medico = $database->listaVisitas($idTrabajador);
+        $nombresMedicos = $medico[0]['nombreTrabajador']." ".$medico[0]['apellidoTrabajador'];
         $asunto = "Cita Solicitada";
-        enviarCorreo($correo, $asunto ,$cuerpo ,$codigo, $enlace, $medico[0]['nombreTrabajador'], $fecha, $hora);
+        //$response['datos'] = $correo[0]['correo'].$asunto.$cuerpo.$codigo.$enlace.$nombresMedicos.$fecha.$hora;
+        enviarCorreo($correo[0]['correo'], $asunto ,$cuerpo ,$codigo, $enlace, $nombresMedicos, $fecha, $hora);
     } else {
         $response['success'] = false;
         $response['message'] = 'Error al insertar cita: ' . mysqli_error($conexion);

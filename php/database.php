@@ -64,7 +64,7 @@ class Database {
     }
     
     public function listaVisitas(){
-        $statement = $this->connection->prepare("SELECT ci.idCita, pe.nombre AS nombreCliente, per.nombre AS nombreTrabajador, ci.fecha, ci.hora, ci.descripcion  
+        $statement = $this->connection->prepare("SELECT ci.idCita, pe.nombre AS nombreCliente, per.nombre AS nombreTrabajador, per.apellido AS apellidoTrabajador, ci.fecha, ci.hora, ci.descripcion  
                                                 FROM cliente c 
                                                 JOIN cita ci ON (c.idCliente = ci.idCliente) 
                                                 JOIN personal t ON (ci.idTrabajador = t.idTrabajador) 
@@ -88,8 +88,9 @@ class Database {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function correoCliente($dni){
-        $statement = $this->connection->prepare("SELECT * FROM persona WHERE dni = '$dni'");
+    public function correoCliente($dni) {
+        $statement = $this->connection->prepare("SELECT * FROM persona WHERE dni = :dni");
+        $statement->bindParam(':dni', $dni, PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

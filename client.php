@@ -239,7 +239,6 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
                         <?php 
                             // Obtener los datos de visita
                             $datosVisita = $database->datosVisita($dni);
-
                             // Verificar si hay datos disponibles
                             if (!empty($datosVisita)) {
                                 foreach ($datosVisita as $visita) {
