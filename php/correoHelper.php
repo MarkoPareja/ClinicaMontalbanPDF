@@ -47,7 +47,7 @@ function enviarCorreo($correo, $asunto, $cuerpo , $codigo = null, $enlace = null
 
         $mail->Body =$body;
 
-    } else if($medico != null AND $dia != null AND $hora != null) {
+    } else if($medico !== null AND $dia !== null AND $hora !== null) {
 
         ob_start();
 
@@ -57,8 +57,8 @@ function enviarCorreo($correo, $asunto, $cuerpo , $codigo = null, $enlace = null
 
 
         $body = str_replace('$hora', $hora, $cuerpo);
-        $body += str_replace('$dia', $dia, $cuerpo);
-        $body += str_replace('$medico', $medico, $cuerpo);
+        $body = str_replace('$dia', $dia, $body);
+        $body = str_replace('$medico', $medico, $body);
 
         $mail->addAddress($correo);
 

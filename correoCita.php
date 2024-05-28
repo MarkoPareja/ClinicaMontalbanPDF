@@ -25,9 +25,12 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 300px; height: 200px; border-radius: 10px;">
+                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 450px; height: 200px; border-radius: 10px;">
+                                <br>    
                                 <span style="font-size: 25px; font-weight: bold;">DIA : $dia</span>
+                                <br>
                                 <span style="font-size: 25px; font-weight: bold;">HORA : $hora</span>
+                                <br>
                                 <span style="font-size: 25px; font-weight: bold;">MEDICO : $medico</span>
                             </div>
                         </td>
