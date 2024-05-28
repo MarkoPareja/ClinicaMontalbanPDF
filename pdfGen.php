@@ -568,6 +568,6 @@ $apellidoDecode = utf8_decode($apellidoTrim);
 
 $pdf->SetLeftMargin(45);
 $pdf->SetFontSize(14);
-$pdf->Output();
-//$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
+//$pdf->Output();
+$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
 ?>

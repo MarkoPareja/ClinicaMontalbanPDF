@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 450px; height: 200px; border-radius: 10px;">
+                            <div style="background-color: rgba(128, 128, 128, 0.404); width: 500px; height: 160px; border-radius: 10px;">
                                 <br>    
                                 <span style="font-size: 25px; font-weight: bold;">DIA : $dia</span>
                                 <br>
@@ -36,7 +36,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" style="margin-top: 20px;">
+                        <td align="center" style="margin-top: 20px; color: #000000;">
                             <a href="https://clinicamontalban.com">
                                 <img src="https://clinicamontalban.com/assets/img/LOGO-COLOR.png" width="70" alt="LOGOTIPO DE LA EMPRESA">
                             </a>

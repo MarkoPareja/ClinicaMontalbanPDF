@@ -12,9 +12,6 @@
     color: #041da8;
     padding: 1px; /* Añadir un relleno alrededor del contenido para separarlo del borde */
 }
-.container {
-    text-align: center;
-}
 
 .download-button {
     display: flex;
