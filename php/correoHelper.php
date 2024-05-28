@@ -3,7 +3,7 @@ include "conexion_be.php";
 require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
-function enviarCorreo($correo, $asunto, $cuerpo , $codigo = null, $enlace = null) {
+function enviarCorreo($correo, $asunto, $cuerpo , $codigo = null, $enlace = null, $medico = null, $dia = null, $hora = null) {
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->isHTML(true);
@@ -47,6 +47,24 @@ function enviarCorreo($correo, $asunto, $cuerpo , $codigo = null, $enlace = null
 
         $mail->Body =$body;
 
+    } else if($medico != null AND $dia != null AND $hora != null) {
+
+        ob_start();
+
+        include '../correoCita.php';
+
+        $cuerpo = ob_get_clean();
+
+
+        $body = str_replace('$hora', $hora, $cuerpo);
+        $body += str_replace('$dia', $dia, $cuerpo);
+        $body += str_replace('$medico', $medico, $cuerpo);
+
+        $mail->addAddress($correo);
+
+
+        $mail->Body = $body;
+    
     } else{
 
       

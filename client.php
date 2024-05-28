@@ -320,7 +320,7 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
             <p class="card-text">Sigue correctamente los pasos para que la aplicacion se ejecute correctamente</p>
             <ol class="list-group list-group-numbered">
                 <li class="list-group-item"><a href="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=249833_43d62d619be4e416215729597d70b8ac">Instalar JAVA 8+ (Version 8 o posterior)</a></li>
-                <li class="list-group-item"><a href="https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe">Instalar JAVA JDK 17.0.1+ (Version 17.0.1 o posterior)</a></li>
+                <li class="list-group-item"><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">Instalar JAVA JDK 17.0.1+ (Version 17.0.1 o posterior)</a></li>
                 <li class="list-group-item">Ejecutar aplicación</li>
             </ol>
         </div>
@@ -353,7 +353,7 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
                     Ejecutar aplicación 
                     <div class="code-container-parent">
                         <div class="code-container" id="code3">
-                            <button class="copy-button" onclick="copyToClipboard('code-block2')">Copiar</button>
+                            <button class="copy-button" onclick="copyToClipboard('code-block3')">Copiar</button>
                             <pre id="code-block3">java --module-path /usr/share/openjfx/lib --add-modules javafx.controls,javafx.fxml -jar ClinicaMontalban-1.0-SNAPSHOT-shaded.jar</pre>
                         </div>
                     </div>
@@ -365,6 +365,7 @@ $usuario = $database->comprovacionTrabajador($_SESSION['usuario']);
 
 <?php } ?>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src='assets/js/hjsCalendar.min.js'></script>
 <?php if($usuario[0]['usuario'] === 0) { 
     echo "<script src='assets/js/hjsCalendar.min.js'></script>";
     echo "<script src='assets/js/generarVisitas.js'></script>";
