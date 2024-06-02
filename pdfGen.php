@@ -562,7 +562,7 @@ foreach ($database->infoDetalleConsulta($_POST['cita']) as $consul) {
 
 $citaDatos = $database->datosCita($_POST['cita']);
 
-if(!empty($isMedicamentosEmpty)){
+if(!empty($isMedicamentosEmpty) && !empty($citaDatos[0]['informe'])){
 $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
 $pdf->Image('assets/img/LOGO-B-N.png',10,12,25,0,'');
