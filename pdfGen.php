@@ -665,5 +665,5 @@ $apellidoDecode = utf8_decode($apellidoTrim);
 $pdf->SetLeftMargin(45);
 $pdf->SetFontSize(14);
 //$pdf->Output();
-$pdf->Output($nombreDecode.$apellidoDecode."-".$citaDatos[0]['fecha'].".pdf", 'D');
+$pdf->Output($nombreDecode.$apellidoDecode."-".$citaDatos[0]['fecha']."-".$_POST['cita'].".pdf", 'D');
 ?>
