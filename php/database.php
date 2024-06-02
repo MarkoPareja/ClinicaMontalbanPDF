@@ -38,13 +38,21 @@ class Database {
     }
 
     public function datosVisita($dni) {
-        $statement = $this->connection->prepare("SELECT persona.nombre, cita.fecha, cita.descripcion, cita.idCita, cita.hora
+        $statement = $this->connection->prepare("SELECT persona.nombre, cita.fecha, cita.descripcion, cita.idCita, cita.hora, cita.informe
                                                 FROM cita 
                                                 JOIN personal ON cita.idTrabajador = personal.idTrabajador 
                                                 JOIN persona ON personal.DNI = persona.DNI 
                                                 JOIN cliente ON cita.idCliente = cliente.idCliente 
                                                 WHERE cliente.DNI = ? AND cita.estado = 'Realizada' ORDER BY cita.fecha DESC , cita.hora DESC;");
         $statement->execute([$dni]);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function datosCita($id) {
+        $statement = $this->connection->prepare("SELECT *
+                                                FROM cita 
+                                                WHERE idCita = ? ");
+        $statement->execute([$id]);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 

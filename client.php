@@ -485,16 +485,13 @@ $('.dropdown').click(function () {
     /*width: fit-content;*/
 }
 #code-block1{
-    margin-left: -50px;
     width: 400px;
 }
 #code-block2{
-    margin-left: -50px;
     width: 400px;
 }
 
 #code-block3{
-    margin-left: -50px;
     width: 1000px;
 }
 pre {

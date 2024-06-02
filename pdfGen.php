@@ -349,8 +349,9 @@ protected $T128;                                         // Tableau des codes 12
     }
 
 }
-
+$isMedicamentosEmpty = $database->infoDetalleConsulta($_POST['cita']);
 $pdf = new PDF();
+if(!empty($isMedicamentosEmpty)){
 // Primera página
 $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
@@ -560,8 +561,103 @@ foreach ($database->infoDetalleConsulta($_POST['cita']) as $consul) {
     }
 }
 
+$citaDatos = $database->datosCita($_POST['cita']);
 
-$fecha = $database->datosVisita($dni);
+if(!empty($isMedicamentosEmpty)){
+$pdf->AddPage();
+$pdf->SetFont('Arial','',10);
+$pdf->Image('assets/img/LOGO-B-N.png',10,12,25,0,'');
+$pdf->Image('assets/img/generalitat.png',40,20,50,0,'');
+$pdf->Ln(2);
+$pdf->Cell(130);
+$pdf->Cell(80,10, 'C/ Sant Mateu, 24-26');
+$pdf->Ln(5);
+$pdf->Cell(130);
+$pdf->Cell(80,10, '08950 Esplugues del Llobregat,');
+$pdf->Ln(5);
+$pdf->Cell(130);
+$pdf->Cell(80,10, 'Barcelona');
+$pdf->Ln(5);
+$pdf->Cell(130);
+$pdf->Cell(80,10, 'contacto@clinicamontalban.com');
+$pdf->Ln(22);
+$pdf->Cell(3);
+$pdf->SetFont('Arial','',13);
+$txt = '<b>Informe medico                                                                                                              
+</b>';
+$txt = utf8_decode($txt);
+$pdf->WriteHTML($txt);
+$pdf->SetLineWidth(0.45);
+$pdf->Line(14,54.5,198,54.5);
+$pdf->SetFont('Arial','',9);
+$pdf->Ln(5.5);
+$pdf->Cell(20);
+
+$y = 50;
+$maxLineLength = 70;
+$pdf->SetXY(14, $y); 
+$txt = $citaDatos[0]['informe'];
+$txt = utf8_decode($txt);
+//$pdf->WriteHTML($txt);
+
+$salto = 50;
+$lines = str_split($txt, $maxLineLength);
+foreach ($lines as $line) {
+    $salto += 3.2;
+    $pdf->MultiCell(0, 16, $line);
+    $pdf->SetXY(14, $salto); 
+}
+
+}
+}
+else{
+    $citaDatos = $database->datosCita($_POST['cita']);
+    $pdf->AddPage();
+    $pdf->SetFont('Arial','',10);
+    $pdf->Image('assets/img/LOGO-B-N.png',10,12,25,0,'');
+    $pdf->Image('assets/img/generalitat.png',40,20,50,0,'');
+    $pdf->Ln(2);
+    $pdf->Cell(130);
+    $pdf->Cell(80,10, 'C/ Sant Mateu, 24-26');
+    $pdf->Ln(5);
+    $pdf->Cell(130);
+    $pdf->Cell(80,10, '08950 Esplugues del Llobregat,');
+    $pdf->Ln(5);
+    $pdf->Cell(130);
+    $pdf->Cell(80,10, 'Barcelona');
+    $pdf->Ln(5);
+    $pdf->Cell(130);
+    $pdf->Cell(80,10, 'contacto@clinicamontalban.com');
+    $pdf->Ln(22);
+    $pdf->Cell(3);
+    $pdf->SetFont('Arial','',13);
+    $txt = '<b>Informe medico                                                                                                              
+    </b>';
+    $txt = utf8_decode($txt);
+    $pdf->WriteHTML($txt);
+    $pdf->SetLineWidth(0.45);
+    $pdf->Line(14,54.5,198,54.5);
+    $pdf->SetFont('Arial','',9);
+    $pdf->Ln(5.5);
+    $pdf->Cell(20);
+    
+    $y = 50;
+    $maxLineLength = 70;
+    $pdf->SetXY(14, $y); 
+    $txt = $citaDatos[0]['informe'];
+    $txt = utf8_decode($txt);
+    //$pdf->WriteHTML($txt);
+    
+    $salto = 50;
+    $lines = str_split($txt, $maxLineLength);
+    foreach ($lines as $line) {
+        $salto += 3.2;
+        $pdf->MultiCell(0, 16, $line);
+        $pdf->SetXY(14, $salto); 
+    }
+        
+        
+}
 $apellidoTrim =str_replace(' ', '', $apellido);
 $nombreDecode = utf8_decode($nombre);
 $apellidoDecode = utf8_decode($apellidoTrim);
@@ -569,5 +665,5 @@ $apellidoDecode = utf8_decode($apellidoTrim);
 $pdf->SetLeftMargin(45);
 $pdf->SetFontSize(14);
 //$pdf->Output();
-$pdf->Output($nombreDecode.$apellidoDecode."-".$fecha[0]['fecha'], 'D');
+$pdf->Output($nombreDecode.$apellidoDecode."-".$citaDatos[0]['fecha'].".pdf", 'D');
 ?>
