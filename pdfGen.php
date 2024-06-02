@@ -350,6 +350,12 @@ protected $T128;                                         // Tableau des codes 12
 
 }
 $isMedicamentosEmpty = $database->infoDetalleConsulta($_POST['cita']);
+foreach ($database->infoCliente($_POST['cliente']) as $consul) {
+    $nombre = $consul['nombre'];
+    $apellido = $consul['apellido'];
+    $tarjetaSanitaria = $consul['TSI'];
+    $dni = $consul['DNI'];
+}
 $pdf = new PDF();
 if(!empty($isMedicamentosEmpty)){
 // Primera página
@@ -381,13 +387,6 @@ $pdf->Line(14,54.5,198,54.5);
 $pdf->SetFont('Arial','',9);
 $pdf->Ln(7.5);
 $pdf->Cell(3);
-
-foreach ($database->infoCliente($_POST['cliente']) as $consul) {
-    $nombre = $consul['nombre'];
-    $apellido = $consul['apellido'];
-    $tarjetaSanitaria = $consul['TSI'];
-    $dni = $consul['DNI'];
-}
 
 $txt = $nombre.' '.$apellido;
 $txt = utf8_decode($txt);

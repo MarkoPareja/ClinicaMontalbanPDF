@@ -38,7 +38,7 @@ class Database {
     }
 
     public function datosVisita($dni) {
-        $statement = $this->connection->prepare("SELECT persona.nombre, cita.fecha, cita.descripcion, cita.idCita, cita.hora, cita.informe
+        $statement = $this->connection->prepare("SELECT persona.nombre, cita.fecha, cita.descripcion, cita.idCita, cita.hora
                                                 FROM cita 
                                                 JOIN personal ON cita.idTrabajador = personal.idTrabajador 
                                                 JOIN persona ON personal.DNI = persona.DNI 
